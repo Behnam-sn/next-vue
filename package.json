@@ -9,7 +9,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "axios": "^0.25.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.9",
     "vue": "^3.2.27",
