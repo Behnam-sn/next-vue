@@ -14,5 +14,11 @@ module.exports = {
   },
   rules: {
     "no-undef": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };
