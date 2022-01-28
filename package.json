@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "nprogress": "^0.2.0",
-    "pinia": "^2.0.9",
+    "pinia": "^2.0.10",
     "vue": "^3.2.29",
     "vue-router": "^4.0.12"
   },
