@@ -16,6 +16,31 @@ const router = createRouter({
       name: "about",
       component: () => import("../views/AboutView.vue"),
     },
+    {
+      path: "/songs",
+      name: "songs",
+      component: () => import("../views/SongsView.vue"),
+    },
+    {
+      path: "/albums",
+      name: "albums",
+      component: () => import("../views/AlbumsView.vue"),
+    },
+    {
+      path: "/artists",
+      name: "artists",
+      component: () => import("../views/ArtistsView.vue"),
+    },
+    {
+      path: "/recents",
+      name: "recents",
+      component: () => import("../views/RecentsView.vue"),
+    },
+    {
+      path: "/likedSongs",
+      name: "likedSongs",
+      component: () => import("../views/LikedSongsView.vue"),
+    },
   ],
 });
 
