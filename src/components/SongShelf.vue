@@ -7,7 +7,7 @@ const songs = useSongsStore();
 </script>
 
 <template>
-  <div class="flex flex-nowrap overflow-x-scroll no-scrollbar">
+  <div class="flex flex-nowrap overflow-x-scroll no-scrollbar snap-x">
     <div v-for="(song, index) in songs.songs" :key="index">
       <SongCard :song="song" />
     </div>

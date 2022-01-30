@@ -16,5 +16,6 @@ const songs = useSongsStore();
     </div>
     <TitleBar text="songs" />
     <SongShelf />
+    <TitleBar text="artists" />
   </main>
 </template>
