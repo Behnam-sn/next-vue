@@ -44,12 +44,12 @@ const router = createRouter({
     {
       path: "/album/:id",
       name: "theAlbum",
-      component: () => import("../views/TheAlbumView.vue"),
+      component: () => import("../views/AlbumView.vue"),
     },
     {
       path: "/artist/:id",
       name: "theArtist",
-      component: () => import("../views/TheArtistView.vue"),
+      component: () => import("../views/ArtistView.vue"),
     },
   ],
 });
