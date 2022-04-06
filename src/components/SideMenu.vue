@@ -14,9 +14,9 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
 
 <template>
   <nav
-    class="fixed left-0 top-0 h-screen w-52 pt-4 pl-4 hidden xl:flex flex-col bg-[#4974A5] z-10"
+    class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-violet-500 pt-4 pl-4 xl:flex"
   >
-    <div class="font-Ubuntu font-normal text-5xl">next</div>
+    <div class="font-Ubuntu text-5xl font-normal">next</div>
 
     <SideMenuTitle text="menu" />
     <SideMenuItem text="home" address="/">
@@ -52,3 +52,50 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     </SideMenuItem>
   </nav>
 </template>
+
+<style>
+.gradient {
+  background: linear-gradient(270deg, #b993d6, #8ca6db, #870000, #190a05);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>

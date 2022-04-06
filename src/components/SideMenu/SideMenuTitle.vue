@@ -5,5 +5,5 @@ defineProps<{
 </script>
 
 <template>
-  <div class="font-Roboto font-bold uppercase mt-4">{{ text }}</div>
+  <div class="mt-4 mb-1 font-Roboto font-bold uppercase">{{ text }}</div>
 </template>

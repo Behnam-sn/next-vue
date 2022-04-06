@@ -8,11 +8,11 @@ defineProps<{
 <template>
   <router-link
     :to="address"
-    class="font-Roboto font-normal capitalize flex items-center my-2"
+    class="my-2 flex items-center font-Roboto font-normal capitalize"
   >
-    <div class="flex justify-center w-8">
+    <div class="flex w-6 justify-center">
       <slot></slot>
     </div>
-    <div class="ml-3">{{ text }}</div>
+    <div class="ml-2">{{ text }}</div>
   </router-link>
 </template>
