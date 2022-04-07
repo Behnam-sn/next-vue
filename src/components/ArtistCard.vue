@@ -7,10 +7,18 @@ defineProps<{
 </script>
 
 <template>
-  <div class="mr-5 h-72 w-48 snap-start rounded-xl bg-primary-800 p-6 lg:w-56">
-    <img class="rounded-full" :src="'/' + artist.thumbnail" alt="" />
-    <div class="mt-2 text-center font-Quicksand font-medium">
-      {{ artist.name }}
+  <router-link :to="'/artist/' + artist.id">
+    <div
+      class="mr-5 mb-5 h-72 w-48 cursor-pointer snap-start rounded-xl bg-primary-800 p-6 transition duration-300 hover:bg-primary-700 lg:w-56"
+    >
+      <img
+        class="rounded-full"
+        :src="'/' + artist.thumbnail"
+        :alt="artist.name"
+      />
+      <div class="mt-2 text-center font-Quicksand font-medium">
+        {{ artist.name }}
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
