@@ -12,7 +12,7 @@ export const useAlbumsStore = defineStore({
       albums: [
         {
           id: "GqiWvmgQCq",
-          title: "everything i wanted Single",
+          title: "everything i wanted",
           artist: {
             id: "F9ryzh3XwC",
             name: "Billie Eilish",
