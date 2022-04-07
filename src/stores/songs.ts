@@ -24,7 +24,7 @@ export const useSongsStore = defineStore({
           ],
           title: "everything i wanted",
           albumId: "GqiWvmgQCq",
-          number: 0,
+          number: 1,
           length: "04:05",
           thumbnail: "a7z491lObd.png",
           fileName: "",
@@ -93,13 +93,29 @@ export const useSongsStore = defineStore({
           id: "wIqu7NVPnB",
           artists: [
             {
-              id: "",
+              id: "F9ryzh3XwC",
               name: "Billie Eilish",
             },
           ],
           title: "GOLDWING",
           albumId: "dKQ4BeANiD",
           number: 6,
+          length: "02:31",
+          thumbnail: "EVEHF7pGMO.png",
+          fileName: "",
+        },
+        {
+          id: "lznZ1V5Crv",
+          artists: [
+            {
+              id: "F9ryzh3XwC",
+              name: "Billie Eilish",
+            },
+          ],
+          title: "Happier Than Ever",
+          albumId: "dKQ4BeANiD",
+          number: 15,
+          length: "04:58",
           thumbnail: "EVEHF7pGMO.png",
           fileName: "",
         },
@@ -108,6 +124,10 @@ export const useSongsStore = defineStore({
   getters: {
     randomSongs: (state: State) => {
       state.songs.sort(() => 0.5 - Math.random()).slice(0, 2);
+    },
+    getSongsByAlbum: (state) => {
+      return (AlbumId: string) =>
+        state.songs.filter((song) => song.albumId === AlbumId);
     },
   },
   actions: {},
