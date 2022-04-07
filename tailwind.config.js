@@ -12,6 +12,8 @@ module.exports = {
           900: "#020102",
         },
         secondary: "#ffffff",
+        // secondary: "#FCFCFC",
+        tertiary: "#826AED",
       },
       fontFamily: {
         Ubuntu: ["'Ubuntu'", "sans-serif"],
