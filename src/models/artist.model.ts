@@ -1,6 +1,7 @@
 export interface Artist {
+  id: string;
   name: string;
   monthlyListeners: string;
-  popularSongs: Array<string>;
+  popularSongs: string[];
   thumbnail: string;
 }
