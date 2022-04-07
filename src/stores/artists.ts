@@ -11,17 +11,24 @@ export const useArtistsStore = defineStore({
     ({
       artists: [
         {
+          id: "HkU6XoUMT3",
           name: "Kendrick Lamar",
           monthlyListeners: "30,746,065",
           thumbnail: "IPs0WF0PBo.jpg",
         },
         {
+          id: "F9ryzh3XwC",
           name: "Billie Eilish",
           monthlyListeners: "49,521,344",
           thumbnail: "Be2dqGESKW.jpg",
         },
       ],
     } as State),
-  getters: {},
+  getters: {
+    getArtistById: (state) => {
+      return (ArtistId: string) =>
+        state.artists.find((artist) => artist.id === ArtistId);
+    },
+  },
   actions: {},
 });
