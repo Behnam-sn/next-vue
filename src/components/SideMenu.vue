@@ -14,7 +14,7 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
 
 <template>
   <nav
-    class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-violet-500 pt-4 pl-4 xl:flex"
+    class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-violet-500 pt-4 pl-4 lg:flex"
   >
     <div class="font-Ubuntu text-5xl font-normal">next</div>
 
@@ -25,11 +25,11 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     <SideMenuItem text="songs" address="/songs">
       <MusicIcon class="h-6" />
     </SideMenuItem>
-    <SideMenuItem text="Albums" address="/albums">
-      <DiscIcon class="h-6" />
-    </SideMenuItem>
     <SideMenuItem text="artists" address="/artists">
       <MicrophoneIcon class="h-6" />
+    </SideMenuItem>
+    <SideMenuItem text="Albums" address="/albums">
+      <DiscIcon class="h-6" />
     </SideMenuItem>
 
     <SideMenuTitle text="library" />
