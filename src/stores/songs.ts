@@ -12,7 +12,16 @@ export const useSongsStore = defineStore({
       songs: [
         {
           id: "lUfBssvFSD",
-          artists: ["Billie Eilish", "saeed asayesh"],
+          artists: [
+            {
+              id: "F9ryzh3XwC",
+              name: "Billie Eilish",
+            },
+            {
+              id: "HkU6XoUMT3",
+              name: "Kendrick Lamar",
+            },
+          ],
           title: "everything i wanted",
           albumId: "GqiWvmgQCq",
           number: 0,
@@ -22,7 +31,12 @@ export const useSongsStore = defineStore({
         },
         {
           id: "08ZBlEuJbt",
-          artists: ["Imagine Dragons"],
+          artists: [
+            {
+              id: "",
+              name: "Imagine Dragons",
+            },
+          ],
           title: "Believer",
           albumId: "mjO5GVC4CS",
           number: 3,
@@ -32,7 +46,12 @@ export const useSongsStore = defineStore({
         },
         {
           id: "Ueu1aVwooq",
-          artists: ["Ed Sheeran"],
+          artists: [
+            {
+              id: "",
+              name: "Ed Sheeran",
+            },
+          ],
           title: "Shape of You",
           albumId: "j08YqSsIbK",
           number: 4,
@@ -42,7 +61,12 @@ export const useSongsStore = defineStore({
         },
         {
           id: "QLknrbUFPQ",
-          artists: ["The Weeknd"],
+          artists: [
+            {
+              id: "",
+              name: "The Weeknd",
+            },
+          ],
           title: "After Hours",
           albumId: "g3Ivem8wBY",
           number: 13,
@@ -52,7 +76,12 @@ export const useSongsStore = defineStore({
         },
         {
           id: "fgyUTxJdYv",
-          artists: ["Drake"],
+          artists: [
+            {
+              id: "",
+              name: "Drake",
+            },
+          ],
           title: "God's Plan",
           albumId: "e8hUylGqE3",
           number: 5,
@@ -62,7 +91,12 @@ export const useSongsStore = defineStore({
         },
         {
           id: "wIqu7NVPnB",
-          artists: ["Billie Eilish"],
+          artists: [
+            {
+              id: "",
+              name: "Billie Eilish",
+            },
+          ],
           title: "GOLDWING",
           albumId: "dKQ4BeANiD",
           number: 6,
