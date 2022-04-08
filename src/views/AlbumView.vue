@@ -79,7 +79,10 @@ const songs = ref(songsStore.getSongsByAlbum(id));
           <div>{{ song.title }}</div>
           <div class="flex text-sm text-neutral-400">
             <template v-for="(artist, index) in song.artists" :key="index">
-              <router-link :to="'/artist/' + artist.id">
+              <router-link
+                :to="'/artist/' + artist.id"
+                class="underline-offset-4 transition hover:underline"
+              >
                 {{ artist.name }}
               </router-link>
               <span
