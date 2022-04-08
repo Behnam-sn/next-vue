@@ -8,7 +8,7 @@ const songsStore = useSongsStore();
 
 <template>
   <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <template v-for="(song, index) in songsStore.songs" :key="index">
+    <template v-for="song in songsStore.songs" :key="song.id">
       <SongCard :song="song" />
     </template>
   </div>
