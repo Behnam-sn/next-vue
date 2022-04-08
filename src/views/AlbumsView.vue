@@ -11,7 +11,7 @@ const albumsStore = useAlbumsStore();
   <div>
     <TitleBar text="songs" />
     <div class="flex flex-wrap">
-      <div v-for="(album, index) in albumsStore.albums" :key="index">
+      <div v-for="album in albumsStore.albums" :key="album.id">
         <AlbumCard :album="album" />
       </div>
     </div>

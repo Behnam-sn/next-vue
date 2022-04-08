@@ -11,7 +11,7 @@ const artists = useArtistsStore();
   <div>
     <TitleBar text="artists" />
     <div class="flex flex-wrap">
-      <div v-for="(artist, index) in artists.artists" :key="index">
+      <div v-for="artist in artists.artists" :key="artist.id">
         <ArtistCard :artist="artist" />
       </div>
     </div>
