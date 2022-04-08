@@ -5,15 +5,17 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          500: "#4D4D4D",
-          600: "#343334",
-          700: "#272527",
-          800: "#1B1A1B",
-          900: "#020102",
+          300: "#565052",
+          400: "#474143",
+          500: "#433E40",
+          600: "#3F3A3C",
+          700: "#373335",
+          800: "#302C2E",
+          900: "#282426",
         },
-        secondary: "#ffffff",
-        // secondary: "#FCFCFC",
-        tertiary: "#826AED",
+        secondary: "#F8F9FA",
+        tertiary: "#7209b7",
+        // tertiary: "#ca3cff",
       },
       fontFamily: {
         Ubuntu: ["'Ubuntu'", "sans-serif"],
