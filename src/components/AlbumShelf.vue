@@ -8,8 +8,8 @@ const albumsStore = useAlbumsStore();
 
 <template>
   <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <div v-for="(album, index) in albumsStore.albums" :key="index">
+    <template v-for="(album, index) in albumsStore.albums" :key="index">
       <AlbumCard :album="album" />
-    </div>
+    </template>
   </div>
 </template>

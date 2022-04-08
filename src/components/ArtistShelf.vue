@@ -8,8 +8,8 @@ const artists = useArtistsStore();
 
 <template>
   <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <div v-for="(artist, index) in artists.artists" :key="index">
+    <template v-for="(artist, index) in artists.artists" :key="index">
       <ArtistCard :artist="artist" />
-    </div>
+    </template>
   </div>
 </template>
