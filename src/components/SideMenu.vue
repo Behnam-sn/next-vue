@@ -14,7 +14,7 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
 
 <template>
   <nav
-    class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-violet-500 pt-4 pl-4 lg:flex"
+    class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-tertiary pt-4 pl-4 text-secondary lg:flex"
   >
     <div class="font-Ubuntu text-5xl font-normal">next</div>
 
