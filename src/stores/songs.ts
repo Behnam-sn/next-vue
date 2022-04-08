@@ -125,6 +125,9 @@ export const useSongsStore = defineStore({
     randomSongs: (state: State) => {
       state.songs.sort(() => 0.5 - Math.random()).slice(0, 2);
     },
+    getSongById: (state) => {
+      return (SongId: string) => state.songs.find((song) => song.id === SongId);
+    },
     getSongsByAlbum: (state) => {
       return (AlbumId: string) =>
         state.songs.filter((song) => song.albumId === AlbumId);

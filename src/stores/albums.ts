@@ -89,6 +89,18 @@ export const useAlbumsStore = defineStore({
       return (AlbumId: string) =>
         state.albums.find((album) => album.id === AlbumId);
     },
+    getAlbumsByArtist: (state) => {
+      return (ArtistId: string) =>
+        state.albums.filter(
+          (album) => album.artist.id === ArtistId && album.type !== "Single"
+        );
+    },
+    getSinglesByArtist: (state) => {
+      return (ArtistId: string) =>
+        state.albums.filter(
+          (album) => album.artist.id === ArtistId && album.type === "Single"
+        );
+    },
   },
   actions: {},
 });

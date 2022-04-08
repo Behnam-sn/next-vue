@@ -20,6 +20,7 @@ export const useArtistsStore = defineStore({
           id: "F9ryzh3XwC",
           name: "Billie Eilish",
           monthlyListeners: "49,521,344",
+          popularSongs: ["lznZ1V5Crv", "lUfBssvFSD"],
           thumbnail: "Be2dqGESKW.jpg",
         },
       ],
