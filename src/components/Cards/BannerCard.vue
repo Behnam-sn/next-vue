@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// import { Song } from "@/models/song.model";
 import type { Song } from "@/models/song.model";
+
 defineProps<{
   song: Song;
 }>();

@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import AlbumCard from "@/components/AlbumCard.vue";
+import AlbumCard from "@/components/Cards/AlbumCard.vue";
 
 import { useAlbumsStore } from "@/stores/albums";
-
 const albumsStore = useAlbumsStore();
 </script>
 

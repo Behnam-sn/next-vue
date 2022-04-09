@@ -5,7 +5,7 @@ import { useRoute } from "vue-router";
 import type { Song } from "@/models/song.model";
 
 import TitleBar from "@/components/TitleBar.vue";
-import AlbumCard from "@/components/AlbumCard.vue";
+import AlbumCard from "@/components/Cards/AlbumCard.vue";
 
 import { useArtistsStore } from "@/stores/artists";
 import { useAlbumsStore } from "@/stores/albums";

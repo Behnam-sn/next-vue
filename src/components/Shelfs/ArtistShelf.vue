@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import ArtistCard from "@/components/ArtistCard.vue";
+import ArtistCard from "@/components/Cards/ArtistCard.vue";
 
 import { useArtistsStore } from "@/stores/artists";
-
 const artistsStore = useArtistsStore();
 </script>
 

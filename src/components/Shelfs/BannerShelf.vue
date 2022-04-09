@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import BannerCard from "@/components/BannerCard.vue";
+import BannerCard from "@/components/Cards/BannerCard.vue";
 
 import { useSongsStore } from "@/stores/songs";
-
 const songsStore = useSongsStore();
 </script>
 

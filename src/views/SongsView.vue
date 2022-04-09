@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import TitleBar from "@/components/TitleBar.vue";
-import SongCard from "@/components/SongCard.vue";
+import SongCard from "@/components/Cards/SongCard.vue";
 
 import { useSongsStore } from "@/stores/songs";
-
 const songsStore = useSongsStore();
 </script>
 
