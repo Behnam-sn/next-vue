@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import SideMenu from "@/components/SideMenu.vue";
+import PlayerBar from "@/components/PlayerBar.vue";
 </script>
 
 <template>
   <SideMenu />
+  <PlayerBar />
   <div class="px-8 pb-52 lg:ml-52">
     <RouterView />
   </div>
