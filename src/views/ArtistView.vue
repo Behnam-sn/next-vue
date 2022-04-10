@@ -40,7 +40,7 @@ if (artist.value?.popularSongs !== undefined) {
     <div class="flex items-center">
       <div class="w-60">
         <img
-          class="rounded-full"
+          class="rounded-full shadow-2xl"
           :src="'/' + artist?.thumbnail"
           :alt="artist?.name"
         />

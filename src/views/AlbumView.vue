@@ -28,7 +28,7 @@ const songs = ref(songsStore.getSongsByAlbum(id));
     <div class="flex items-center">
       <div class="w-60">
         <img
-          class="rounded-xl"
+          class="rounded-xl shadow-2xl"
           :src="'/' + album?.thumbnail"
           :alt="album?.title"
         />
