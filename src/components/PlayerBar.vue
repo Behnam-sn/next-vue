@@ -37,8 +37,8 @@ const isPaused = ref(false);
           <BackwardIcon class="w-4" />
         </button>
         <button class="cursor-pointer py-2 px-3" @click="isPaused = !isPaused">
-          <PauseIcon v-if="isPaused" class="w-4" />
-          <PlayIcon v-else class="w-4" />
+          <PauseIcon v-if="isPaused" class="w-5" />
+          <PlayIcon v-else class="w-5" />
         </button>
         <button class="cursor-pointer py-2 px-3">
           <ForwardIcon class="w-4" />
