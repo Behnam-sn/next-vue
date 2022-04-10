@@ -29,7 +29,7 @@ const isPaused = ref(false);
     </div>
 
     <div class="grow">
-      <div class="mb-2 flex items-center justify-center">
+      <div class="mb-1 flex items-center justify-center">
         <button class="cursor-pointer py-2 px-3">
           <ShuffleIcon class="w-4" />
         </button>
@@ -47,15 +47,17 @@ const isPaused = ref(false);
           <RepeatIcon class="w-4" />
         </button>
       </div>
-      <div class="flex justify-center">
+      <div class="flex items-center justify-center">
+        <div>0:00</div>
         <input
           type="range"
           min="1"
           max="100"
           value="0"
           id="audio"
-          class="slide h-2 w-[30rem] cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
+          class="slide mx-4 w-[30rem]"
         />
+        <div>3:34</div>
       </div>
     </div>
 
@@ -75,7 +77,7 @@ const isPaused = ref(false);
           max="100"
           value="80"
           id="volume"
-          class="slide h-2 w-28 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
+          class="slide w-28"
         />
       </div>
     </div>
@@ -83,6 +85,9 @@ const isPaused = ref(false);
 </template>
 
 <style scoped>
+.slide {
+  @apply h-2 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none;
+}
 .slide::-webkit-slider-thumb {
   @apply h-3 w-3 appearance-none bg-secondary-900;
   box-shadow: -100vw 0 0 100vw #f8f9fa;
