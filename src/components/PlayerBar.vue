@@ -17,7 +17,7 @@ const isPaused = ref(false);
 
 <template>
   <div
-    class="fixed bottom-8 left-56 right-4 z-10 flex items-center rounded-xl bg-white/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 backdrop-blur-3xl backdrop-brightness-100"
+    class="fixed bottom-8 left-56 right-4 z-10 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100"
   >
     <div class="w-16">
       <img src="/5xUwktQM79.jpg" alt="" class="rounded-xl" />
@@ -29,7 +29,7 @@ const isPaused = ref(false);
     </div>
 
     <div class="grow">
-      <div class="flex items-center justify-center">
+      <div class="mb-2 flex items-center justify-center">
         <button class="cursor-pointer py-2 px-3">
           <ShuffleIcon class="w-4" />
         </button>
@@ -37,8 +37,8 @@ const isPaused = ref(false);
           <BackwardIcon class="w-4" />
         </button>
         <button class="cursor-pointer py-2 px-3" @click="isPaused = !isPaused">
-          <PauseIcon v-if="isPaused" class="w-5" />
-          <PlayIcon v-else class="w-5" />
+          <PauseIcon v-if="isPaused" class="h-7 w-5" />
+          <PlayIcon v-else class="h-7 w-5" />
         </button>
         <button class="cursor-pointer py-2 px-3">
           <ForwardIcon class="w-4" />
@@ -47,9 +47,16 @@ const isPaused = ref(false);
           <RepeatIcon class="w-4" />
         </button>
       </div>
-      <!-- <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" id="myRange" />
-      </div> -->
+      <div class="flex justify-center">
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="0"
+          id="audio"
+          class="slide h-2 w-[30rem] cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
+        />
+      </div>
     </div>
 
     <div class="mr-4">
@@ -67,8 +74,8 @@ const isPaused = ref(false);
           min="1"
           max="100"
           value="80"
-          id="vulome"
-          class="vulome h-2 w-28 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
+          id="volume"
+          class="slide h-2 w-28 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
         />
       </div>
     </div>
@@ -76,12 +83,12 @@ const isPaused = ref(false);
 </template>
 
 <style scoped>
-.vulome::-webkit-slider-thumb {
+.slide::-webkit-slider-thumb {
   @apply h-3 w-3 appearance-none bg-secondary-900;
   box-shadow: -100vw 0 0 100vw #f8f9fa;
 }
 
-.vulome::-moz-range-thumb {
+.slide::-moz-range-thumb {
   @apply h-3 w-3 appearance-none bg-secondary-900;
   box-shadow: -100vw 0 0 100vw #f8f9fa;
 }
