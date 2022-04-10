@@ -68,7 +68,7 @@ const isPaused = ref(false);
           max="100"
           value="80"
           id="vulome"
-          class="vulome h-2 cursor-pointer appearance-none overflow-hidden rounded-full outline-none"
+          class="vulome h-2 w-28 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none"
         />
       </div>
     </div>
@@ -77,15 +77,12 @@ const isPaused = ref(false);
 
 <style scoped>
 .vulome::-webkit-slider-thumb {
-  @apply h-3 w-3 appearance-none;
-  background: #04aa6d;
-  box-shadow: -100vw 0 0 100vw #04aa6d;
+  @apply h-3 w-3 appearance-none bg-secondary-900;
+  box-shadow: -100vw 0 0 100vw #f8f9fa;
 }
 
-/* .vulome::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #04aa6d;
-  cursor: pointer;
-} */
+.vulome::-moz-range-thumb {
+  @apply h-3 w-3 appearance-none bg-secondary-900;
+  box-shadow: -100vw 0 0 100vw #f8f9fa;
+}
 </style>
