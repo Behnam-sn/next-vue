@@ -17,7 +17,7 @@ const isPaused = ref(false);
 
 <template>
   <div
-    class="fixed bottom-8 left-56 right-4 z-10 flex items-center rounded-xl bg-white/10 fill-secondary px-6 py-3 font-Quicksand text-secondary backdrop-blur-3xl backdrop-brightness-100"
+    class="fixed bottom-8 left-56 right-4 z-10 flex items-center rounded-xl bg-white/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 backdrop-blur-3xl backdrop-brightness-100"
   >
     <div class="w-16">
       <img src="/5xUwktQM79.jpg" alt="" class="rounded-xl" />

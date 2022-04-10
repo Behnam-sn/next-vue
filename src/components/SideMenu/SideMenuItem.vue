@@ -10,7 +10,7 @@ defineProps<{
     :to="address"
     class="my-2 flex items-center font-Roboto font-normal capitalize"
   >
-    <div class="flex w-6 justify-center fill-secondary">
+    <div class="flex w-6 justify-center fill-secondary-900">
       <slot></slot>
     </div>
     <div class="ml-2">{{ text }}</div>
