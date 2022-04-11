@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useUserStore } from "@/stores/user";
 import type { Song } from "@/models/song.model";
 
 interface State {
@@ -36,6 +37,9 @@ export const usePlayerStore = defineStore({
     playSong(song: Song): void {
       this.queue = [song];
       this.currentIndex = 0;
+
+      const userStore = useUserStore();
+      userStore.addToRecents(song);
     },
   },
 });

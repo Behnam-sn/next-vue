@@ -3,7 +3,7 @@ import type { Song } from "@/models/song.model";
 
 interface State {
   likedSongs: Song[];
-  recents: string[];
+  recents: Song[];
   queue: Song[];
 }
 
@@ -32,6 +32,9 @@ export const useUserStore = defineStore({
         return true;
       }
       return false;
+    },
+    addToRecents(song: Song): void {
+      this.recents.push(song);
     },
   },
 });
