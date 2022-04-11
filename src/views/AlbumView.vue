@@ -1,26 +1,39 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
 
 import { useRoute } from "vue-router";
 import { useAlbumsStore } from "@/stores/albums";
 import { useArtistsStore } from "@/stores/artists";
 import { useSongsStore } from "@/stores/songs";
 
-const route = useRoute();
-const id: any = route.params.id;
-
-const albumsStore = useAlbumsStore();
-const album = ref(albumsStore.getAlbumById(id));
-
 const artistsStore = useArtistsStore();
-const artist = ref();
-
-if (album.value !== undefined) {
-  artist.value = artistsStore.getArtistById(album.value.artist.id);
-}
-
+const albumsStore = useAlbumsStore();
 const songsStore = useSongsStore();
-const songs = ref(songsStore.getSongsByAlbum(id));
+const route = useRoute();
+
+const id = computed(() => {
+  if (typeof route.params.id === "string") {
+    return route.params.id;
+  } else {
+    return "";
+  }
+});
+
+const album = computed(() => {
+  return albumsStore.getAlbumById(id.value);
+});
+
+const artist = computed(() => {
+  if (album.value) {
+    return artistsStore.getArtistById(album.value.artist.id);
+  } else {
+    return undefined;
+  }
+});
+
+const songs = computed(() => {
+  return songsStore.getSongsByAlbum(id.value);
+});
 </script>
 
 <template>
