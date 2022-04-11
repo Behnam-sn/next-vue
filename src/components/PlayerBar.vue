@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 import ShuffleIcon from "@/assets/icons/ShuffleIcon.vue";
 import RepeatIcon from "@/assets/icons/RepeatIcon.vue";
@@ -12,10 +12,25 @@ import VolumeIcon from "@/assets/icons/VolumeIcon.vue";
 import MuteIcon from "@/assets/icons/MuteIcon.vue";
 
 import { usePlayerStore } from "@/stores/player";
+import { useUserStore } from "@/stores/user";
+
 const playerStore = usePlayerStore();
+const userStore = useUserStore();
 
 const isMute = ref(false);
 const isPaused = ref(false);
+
+const isLiked = computed(() => {
+  return userStore.isInLikedSong(playerStore.currnetSong.id);
+});
+
+function likeSong() {
+  if (isLiked.value) {
+    userStore.removeFromLikedSongs(playerStore.currnetSong);
+  } else {
+    userStore.addToLikedSongs(playerStore.currnetSong);
+  }
+}
 </script>
 
 <template>
@@ -94,10 +109,10 @@ const isPaused = ref(false);
     </div>
 
     <div class="flex w-3/12 items-center justify-end">
-      <div class="mr-4">
+      <button @click="likeSong" :class="{ 'fill-red-500': isLiked }">
         <HeartIcon class="w-7" />
-      </div>
-      <button class="mr-2 cursor-pointer" @click="isMute = !isMute">
+      </button>
+      <button class="mx-4 cursor-pointer" @click="isMute = !isMute">
         <MuteIcon v-if="isMute" class="w-7" />
         <VolumeIcon v-else class="w-7" />
       </button>
