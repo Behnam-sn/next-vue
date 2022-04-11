@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
-
-import type { Song } from "@/models/song.model";
 
 import TitleBar from "@/components/TitleBar.vue";
 import AlbumCard from "@/components/Cards/AlbumCard.vue";
@@ -14,25 +12,40 @@ import { useSongsStore } from "@/stores/songs";
 const artistsStore = useArtistsStore();
 const albumsStore = useAlbumsStore();
 const songsStore = useSongsStore();
-
 const route = useRoute();
-const id: any = route.params.id;
 
-const artist = ref(artistsStore.getArtistById(id));
+const id = computed(() => {
+  if (typeof route.params.id === "string") {
+    return route.params.id;
+  } else {
+    return "";
+  }
+});
 
-const artistAlbums = ref(albumsStore.getAlbumsByArtist(id));
-const artistSingles = ref(albumsStore.getSinglesByArtist(id));
+const artist = computed(() => {
+  return artistsStore.getArtistById(id.value);
+});
 
-const popularSongs: Song[] = [];
-if (artist.value?.popularSongs !== undefined) {
-  for (const id of artist.value.popularSongs) {
-    let song = songsStore.getSongById(id);
+const artistAlbums = computed(() => {
+  return albumsStore.getAlbumsByArtist(id.value);
+});
 
-    if (song !== undefined) {
-      popularSongs.push(song);
+const artistSingles = computed(() => {
+  return albumsStore.getSinglesByArtist(id.value);
+});
+
+const popularSongs = computed(() => {
+  let songs = [];
+  if (artist.value?.popularSongs) {
+    for (const songId of artist.value.popularSongs) {
+      let song = songsStore.getSongById(songId);
+      if (song) {
+        songs.push(song);
+      }
     }
   }
-}
+  return songs;
+});
 </script>
 
 <template>
