@@ -3,13 +3,12 @@ import type { Song } from "@/models/song.model";
 
 import PlayIcon from "@/assets/icons/PlayIcon.vue";
 
+import { usePlayerStore } from "@/stores/player";
+const playerStore = usePlayerStore();
+
 defineProps<{
   song: Song;
 }>();
-
-function aaa() {
-  console.log("hello");
-}
 </script>
 
 <template>
@@ -40,7 +39,7 @@ function aaa() {
       </div>
     </router-link>
     <button
-      @click="aaa"
+      @click="playerStore.playSong(song)"
       class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary fill-secondary-900 pl-1 transition-transform duration-300 group-hover:scale-100"
     >
       <PlayIcon class="w-4" />
