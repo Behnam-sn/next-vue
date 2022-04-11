@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
+
 import SideMenu from "@/components/SideMenu.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
+
+import { useUserStore } from "@/stores/user";
+const userStore = useUserStore();
+userStore.fetchLocalStorageData();
 </script>
 
 <template>
