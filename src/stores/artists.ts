@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 import type { Artist } from "@/models/artist.model";
 
-export type State = {
+interface State {
   artists: Artist[];
-};
+}
 
 export const useArtistsStore = defineStore({
   id: "artists",
