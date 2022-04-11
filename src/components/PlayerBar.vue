@@ -47,17 +47,20 @@ function likeSong() {
       </div>
 
       <div class="ml-6 overflow-hidden">
-        <div class="text-lg font-medium">
+        <router-link
+          class="text-lg font-medium"
+          :to="'/album/' + playerStore.currnetSong.albumId"
+        >
           {{ playerStore.currnetSong.title }}
-        </div>
+        </router-link>
         <div class="flex text-sm font-light text-neutral-300">
           <template
             v-for="(artist, index) in playerStore.currnetSong.artists"
             :key="index"
           >
             <router-link
+              class="underline-offset-2 transition hover:underline"
               :to="'/artist/' + artist.id"
-              class="underline-offset-4 transition hover:underline"
             >
               {{ artist.name }}
             </router-link>
