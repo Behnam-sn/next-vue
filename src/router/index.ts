@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import HomeView from "@/views/HomeView.vue";
 
 import NProgress from "nprogress";
 
@@ -21,42 +21,42 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("@/views/AboutView.vue"),
     },
     {
       path: "/songs",
       name: "songs",
-      component: () => import("../views/SongsView.vue"),
+      component: () => import("@/views/SongsView.vue"),
     },
     {
       path: "/albums",
       name: "albums",
-      component: () => import("../views/AlbumsView.vue"),
+      component: () => import("@/views/AlbumsView.vue"),
     },
     {
       path: "/artists",
       name: "artists",
-      component: () => import("../views/ArtistsView.vue"),
+      component: () => import("@/views/ArtistsView.vue"),
     },
     {
       path: "/recents",
       name: "recents",
-      component: () => import("../views/RecentsView.vue"),
+      component: () => import("@/views/RecentsView.vue"),
     },
     {
       path: "/likedSongs",
       name: "likedSongs",
-      component: () => import("../views/LikedSongsView.vue"),
+      component: () => import("@/views/LikedSongsView.vue"),
     },
     {
       path: "/album/:id",
       name: "theAlbum",
-      component: () => import("../views/AlbumView.vue"),
+      component: () => import("@/views/AlbumView.vue"),
     },
     {
       path: "/artist/:id",
       name: "theArtist",
-      component: () => import("../views/ArtistView.vue"),
+      component: () => import("@/views/ArtistView.vue"),
     },
   ],
 });
