@@ -60,3 +60,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.swiper-slide {
+  width: auto !important;
+}

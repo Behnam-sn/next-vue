@@ -14,9 +14,3 @@ const songsStore = useSongsStore();
     </swiper-slide>
   </swiper>
 </template>
-
-<style>
-.swiper-slide {
-  width: auto !important;
-}
-</style>

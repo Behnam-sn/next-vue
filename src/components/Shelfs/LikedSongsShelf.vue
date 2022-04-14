@@ -17,9 +17,3 @@ const userStore = useUserStore();
     </swiper-slide>
   </swiper>
 </template>
-
-<style>
-.swiper-slide {
-  width: auto !important;
-}
-</style>
