@@ -4,6 +4,7 @@ import TitleBar from "@/components/TitleBar.vue";
 import SongShelf from "@/components/Shelfs/SongShelf.vue";
 import ArtistShelf from "@/components/Shelfs/ArtistShelf.vue";
 import AlbumShelf from "@/components/Shelfs/AlbumShelf.vue";
+import RecentsShelf from "@/components/Shelfs/RecentsShelf.vue";
 </script>
 
 <template>
@@ -15,5 +16,7 @@ import AlbumShelf from "@/components/Shelfs/AlbumShelf.vue";
     <ArtistShelf />
     <TitleBar text="albums" />
     <AlbumShelf />
+    <TitleBar text="recents" />
+    <RecentsShelf />
   </main>
 </template>
