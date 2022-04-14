@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from "swiper/vue";
+
 import AlbumCard from "@/components/Cards/AlbumCard.vue";
 
 import { useAlbumsStore } from "@/stores/albums";
@@ -6,9 +8,9 @@ const albumsStore = useAlbumsStore();
 </script>
 
 <template>
-  <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <template v-for="album in albumsStore.albums" :key="album.id">
+  <swiper :slides-per-view="'auto'">
+    <swiper-slide v-for="album in albumsStore.albums" :key="album.id">
       <AlbumCard :album="album" />
-    </template>
-  </div>
+    </swiper-slide>
+  </swiper>
 </template>

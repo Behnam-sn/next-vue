@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <div
-    class="group relative mr-5 mb-5 h-72 w-48 cursor-pointer snap-start rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:w-56"
+    class="group relative mr-5 mb-5 h-72 w-48 cursor-pointer rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:w-56"
   >
     <router-link :to="'/album/' + song.albumId">
       <div class="p-6">

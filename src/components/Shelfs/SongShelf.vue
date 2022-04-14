@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from "swiper/vue";
+
 import SongCard from "@/components/Cards/SongCard.vue";
 
 import { useSongsStore } from "@/stores/songs";
@@ -6,9 +8,15 @@ const songsStore = useSongsStore();
 </script>
 
 <template>
-  <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <div v-for="song in songsStore.songs" :key="song.id">
+  <swiper :slides-per-view="'auto'">
+    <swiper-slide v-for="song in songsStore.songs" :key="song.id">
       <SongCard :song="song" />
-    </div>
-  </div>
+    </swiper-slide>
+  </swiper>
 </template>
+
+<style>
+.swiper-slide {
+  width: auto !important;
+}
+</style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from "swiper/vue";
+
 import ArtistCard from "@/components/Cards/ArtistCard.vue";
 
 import { useArtistsStore } from "@/stores/artists";
@@ -6,9 +8,9 @@ const artistsStore = useArtistsStore();
 </script>
 
 <template>
-  <div class="no-scrollbar flex snap-x flex-nowrap overflow-x-scroll">
-    <template v-for="artist in artistsStore.artists" :key="artist.id">
+  <swiper :slides-per-view="'auto'">
+    <swiper-slide v-for="artist in artistsStore.artists" :key="artist.id">
       <ArtistCard :artist="artist" />
-    </template>
-  </div>
+    </swiper-slide>
+  </swiper>
 </template>
