@@ -40,7 +40,7 @@ function likeSong() {
     <div class="flex w-3/12 items-center">
       <div class="w-16">
         <img
-          :src="'/' + playerStore.currnetSong.thumbnail"
+          :src="'/img/' + playerStore.currnetSong.thumbnail"
           alt=""
           class="rounded-xl"
         />

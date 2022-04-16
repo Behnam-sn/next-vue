@@ -17,7 +17,11 @@ defineProps<{
   >
     <router-link :to="'/album/' + song.albumId">
       <div class="p-6">
-        <img class="rounded-xl" :src="'/' + song.thumbnail" :alt="song.title" />
+        <img
+          class="rounded-xl"
+          :src="'/img/' + song.thumbnail"
+          :alt="song.title"
+        />
         <div class="mt-2 font-Quicksand font-medium text-secondary-900">
           {{ song.title }}
         </div>

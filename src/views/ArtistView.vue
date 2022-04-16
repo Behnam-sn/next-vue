@@ -54,7 +54,7 @@ const popularSongs = computed(() => {
       <div class="w-60">
         <img
           class="rounded-full shadow-2xl"
-          :src="'/' + artist?.thumbnail"
+          :src="'/img/' + artist?.thumbnail"
           :alt="artist?.name"
         />
       </div>
@@ -76,7 +76,7 @@ const popularSongs = computed(() => {
           <div class="w-3 text-lg">{{ index + 1 }}</div>
           <img
             class="mx-7 w-16"
-            :src="'/' + song.thumbnail"
+            :src="'/img/' + song.thumbnail"
             :alt="song.title"
           />
           <div class="text-lg">{{ song.title }}</div>

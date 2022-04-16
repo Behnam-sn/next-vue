@@ -51,7 +51,7 @@ const songs = computed(() => {
       <div class="w-60">
         <img
           class="rounded-xl shadow-2xl"
-          :src="'/' + album?.thumbnail"
+          :src="'/img/' + album?.thumbnail"
           :alt="album?.title"
         />
       </div>
@@ -77,7 +77,7 @@ const songs = computed(() => {
               >
                 <img
                   class="w-11 rounded-full"
-                  :src="'/' + artist.thumbnail"
+                  :src="'/img/' + artist.thumbnail"
                   :alt="artist.name"
                 />
                 <div class="ml-2 font-normal">

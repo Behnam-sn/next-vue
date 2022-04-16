@@ -13,7 +13,7 @@ defineProps<{
     >
       <img
         class="rounded-full"
-        :src="'/' + artist.thumbnail"
+        :src="'/img/' + artist.thumbnail"
         :alt="artist.name"
       />
       <div class="mt-2 text-center font-Quicksand font-medium">
