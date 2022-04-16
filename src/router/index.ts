@@ -19,6 +19,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: "/search",
+      name: "search",
+      component: () => import("@/views/SearchView.vue"),
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("@/views/AboutView.vue"),
@@ -29,14 +34,14 @@ const router = createRouter({
       component: () => import("@/views/SongsView.vue"),
     },
     {
-      path: "/albums",
-      name: "albums",
-      component: () => import("@/views/AlbumsView.vue"),
-    },
-    {
       path: "/artists",
       name: "artists",
       component: () => import("@/views/ArtistsView.vue"),
+    },
+    {
+      path: "/albums",
+      name: "albums",
+      component: () => import("@/views/AlbumsView.vue"),
     },
     {
       path: "/recents",

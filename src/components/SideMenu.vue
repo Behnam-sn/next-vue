@@ -4,8 +4,9 @@ import SideMenuItem from "@/components/SideMenu/SideMenuItem.vue";
 
 import HomeIcon from "@/assets/icons/HomeIcon.vue";
 import MusicIcon from "@/assets/icons/MusicIcon.vue";
-import DiscIcon from "@/assets/icons/DiscIcon.vue";
 import MicrophoneIcon from "@/assets/icons/MicrophoneIcon.vue";
+import DiscIcon from "@/assets/icons/DiscIcon.vue";
+import SearchIcon from "@/assets/icons/SearchIcon.vue";
 import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import HistoryIcon from "@/assets/icons/HistoryIcon.vue";
 import ListIcon from "@/assets/icons/ListIcon.vue";
@@ -30,13 +31,16 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     <SideMenuItem text="home" address="/">
       <HomeIcon class="h-6" />
     </SideMenuItem>
+    <SideMenuItem text="search" address="/search">
+      <SearchIcon class="h-6" />
+    </SideMenuItem>
     <SideMenuItem text="songs" address="/songs">
       <MusicIcon class="h-6" />
     </SideMenuItem>
     <SideMenuItem text="artists" address="/artists">
       <MicrophoneIcon class="h-6" />
     </SideMenuItem>
-    <SideMenuItem text="Albums" address="/albums">
+    <SideMenuItem text="albums" address="/albums">
       <DiscIcon class="h-6" />
     </SideMenuItem>
 
