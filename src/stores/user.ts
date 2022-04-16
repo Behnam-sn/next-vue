@@ -3,6 +3,7 @@ import { useSongsStore } from "@/stores/songs";
 import type { Song } from "@/models/song.model";
 
 interface State {
+  currentTab: string;
   likedSongs: Song[];
   recents: Song[];
 }
@@ -11,11 +12,15 @@ export const useUserStore = defineStore({
   id: "user",
   state: () =>
     ({
+      currentTab: "home",
       likedSongs: [],
       recents: [],
     } as State),
   getters: {},
   actions: {
+    changeTab(newTab: string): void {
+      this.currentTab = newTab;
+    },
     addToLikedSongs(song: Song): void {
       this.likedSongs.push(song);
       const localStorageLikedSongs = localStorage.getItem("likedSongs");
