@@ -15,7 +15,7 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
   <nav
     class="fixed left-0 top-0 z-10 hidden h-screen w-52 flex-col bg-tertiary-900 pt-4 pl-4 lg:flex"
   >
-    <div class="font-Ubuntu text-5xl font-normal">next</div>
+    <div class="mb-2 font-Ubuntu text-5xl font-normal">next</div>
 
     <SideMenuTitle text="menu" />
     <SideMenuItem text="home" address="/">
