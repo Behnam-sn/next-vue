@@ -8,7 +8,6 @@ import DiscIcon from "@/assets/icons/DiscIcon.vue";
 import MicrophoneIcon from "@/assets/icons/MicrophoneIcon.vue";
 import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import HistoryIcon from "@/assets/icons/HistoryIcon.vue";
-import PlusIcon from "@/assets/icons/PlusIcon.vue";
 import ListIcon from "@/assets/icons/ListIcon.vue";
 </script>
 
@@ -39,15 +38,7 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     <SideMenuItem text="liked songs" address="/likedSongs">
       <HeartIcon class="h-6" />
     </SideMenuItem>
-
-    <SideMenuTitle text="playlists" />
-    <SideMenuItem text="create" address="/">
-      <PlusIcon class="h-6" />
-    </SideMenuItem>
-    <SideMenuItem text="pop" address="/">
-      <ListIcon class="h-6" />
-    </SideMenuItem>
-    <SideMenuItem text="r&b" address="/">
+    <SideMenuItem text="playlists" address="/">
       <ListIcon class="h-6" />
     </SideMenuItem>
   </nav>
