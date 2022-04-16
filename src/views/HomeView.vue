@@ -6,6 +6,9 @@ import ArtistShelf from "@/components/Shelfs/ArtistShelf.vue";
 import AlbumShelf from "@/components/Shelfs/AlbumShelf.vue";
 import RecentsShelf from "@/components/Shelfs/RecentsShelf.vue";
 import LikedSongs from "@/components/Shelfs/LikedSongsShelf.vue";
+
+import { useUserStore } from "@/stores/user";
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -17,9 +20,13 @@ import LikedSongs from "@/components/Shelfs/LikedSongsShelf.vue";
     <ArtistShelf />
     <TitleBar text="albums" />
     <AlbumShelf />
-    <TitleBar text="recents" />
-    <RecentsShelf />
-    <TitleBar text="liked songs" />
-    <LikedSongs />
+    <template v-if="userStore.recents.length">
+      <TitleBar text="recents" />
+      <RecentsShelf />
+    </template>
+    <template v-if="userStore.likedSongs.length">
+      <TitleBar text="liked songs" />
+      <LikedSongs />
+    </template>
   </main>
 </template>
