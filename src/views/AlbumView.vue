@@ -80,7 +80,7 @@ const songs = computed(() => {
                   :src="'/' + artist.thumbnail"
                   :alt="artist.name"
                 />
-                <div class="ml-2 text-lg font-normal">
+                <div class="ml-2 font-normal">
                   {{ artist.name }}
                 </div>
               </router-link>
