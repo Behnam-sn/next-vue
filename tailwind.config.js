@@ -21,7 +21,14 @@ module.exports = {
           800: "#E9ECEF",
           900: "#F8F9FA",
         },
-        tertiary: "#7209b7",
+        tertiary: {
+          400: "#b655f7",
+          500: "#ac3cf6",
+          600: "#a124f5",
+          700: "#970bf4",
+          800: "#880adb",
+          900: "#7209b7",
+        },
         // tertiary: "#ca3cff",
       },
       fontFamily: {

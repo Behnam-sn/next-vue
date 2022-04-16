@@ -40,7 +40,7 @@ defineProps<{
     </router-link>
     <button
       @click="playerStore.playSong(song)"
-      class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary fill-secondary-900 pl-1 transition-transform duration-300 group-hover:scale-100"
+      class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
     >
       <PlayIcon class="w-4" />
     </button>

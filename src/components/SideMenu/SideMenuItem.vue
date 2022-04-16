@@ -11,8 +11,8 @@ defineProps<{
 <template>
   <router-link
     :to="address"
-    class="my-1 mr-4 flex items-center rounded fill-secondary-900 p-2 font-Roboto font-normal capitalize text-secondary-900 transition duration-300 hover:bg-[#970bf4]"
-    :class="{ 'bg-[#970bf4]': userStore.currentTab === text }"
+    class="my-1 mr-4 flex items-center rounded-md fill-secondary-900 p-2 font-Roboto font-normal capitalize text-secondary-900 transition duration-300 hover:bg-tertiary-700"
+    :class="{ 'bg-tertiary-800': userStore.currentTab === text }"
     @click="userStore.changeTab(text)"
   >
     <div class="flex w-6 items-center justify-center">
