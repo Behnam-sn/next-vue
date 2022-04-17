@@ -52,15 +52,10 @@ body {
   @apply bg-primary-900 text-white;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .swiper-slide {
   width: auto !important;
+}
+
+nav .router-link-active {
+  @apply bg-tertiary-800;
 }

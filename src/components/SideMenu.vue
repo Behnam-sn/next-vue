@@ -51,7 +51,7 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     <SideMenuItem text="liked songs" address="/likedSongs">
       <HeartIcon class="h-6" />
     </SideMenuItem>
-    <SideMenuItem text="playlists" address="/">
+    <SideMenuItem text="playlists" address="/playlists">
       <ListIcon class="h-6" />
     </SideMenuItem>
   </nav>

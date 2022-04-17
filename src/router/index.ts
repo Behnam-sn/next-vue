@@ -55,12 +55,12 @@ const router = createRouter({
     },
     {
       path: "/album/:id",
-      name: "theAlbum",
+      name: "album",
       component: () => import("@/views/AlbumView.vue"),
     },
     {
       path: "/artist/:id",
-      name: "theArtist",
+      name: "artist",
       component: () => import("@/views/ArtistView.vue"),
     },
   ],
