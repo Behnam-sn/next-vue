@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <router-link :to="'/artist/' + artist.id">
     <div
-      class="mr-5 mb-5 h-72 w-48 cursor-pointer rounded-xl bg-primary-800 p-6 transition duration-300 hover:bg-primary-700 lg:w-56"
+      class="mr-5 mb-5 h-72 w-48 cursor-pointer select-none rounded-xl bg-primary-800 p-6 transition duration-300 hover:bg-primary-700 lg:w-56"
     >
       <img
         class="rounded-full"
