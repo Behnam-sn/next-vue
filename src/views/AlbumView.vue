@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
-
 import { useRoute } from "vue-router";
+
+import PlayIcon from "@/assets/icons/PlayIcon.vue";
+
 import { useAlbumsStore } from "@/stores/albums";
 import { useArtistsStore } from "@/stores/artists";
 import { useSongsStore } from "@/stores/songs";
+import { usePlayerStore } from "@/stores/player";
 
 const artistsStore = useArtistsStore();
 const albumsStore = useAlbumsStore();
 const songsStore = useSongsStore();
+const playerStore = usePlayerStore();
 const route = useRoute();
 
 const id = computed(() => {
@@ -23,12 +27,17 @@ const album = computed(() => {
   return albumsStore.getAlbumById(id.value);
 });
 
-const artist = computed(() => {
+const artists = computed(() => {
+  let temp = [];
   if (album.value) {
-    return artistsStore.getArtistById(album.value.artist.id);
-  } else {
-    return undefined;
+    for (const artist of album.value.artists) {
+      let found = artistsStore.getArtistById(artist?.id);
+      if (found) {
+        temp.push(found);
+      }
+    }
   }
+  return temp;
 });
 
 const songs = computed(() => {
@@ -38,7 +47,7 @@ const songs = computed(() => {
 
 <template>
   <div class="mt-4 font-Quicksand font-medium">
-    <div class="flex items-center">
+    <div class="mx-4 flex items-center">
       <div class="w-60">
         <img
           class="rounded-xl shadow-2xl"
@@ -46,7 +55,7 @@ const songs = computed(() => {
           :alt="album?.title"
         />
       </div>
-      <div class="grow px-8">
+      <div class="grow pl-8 pr-4">
         <div class="mb-8 flex items-center justify-between">
           <div class="text-3xl font-bold">
             {{ album?.title }}
@@ -60,19 +69,22 @@ const songs = computed(() => {
           </div>
         </div>
         <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <router-link :to="'/artist/' + album?.artist.id">
-              <img
-                class="w-11 rounded-full"
-                :src="'/' + artist?.thumbnail"
-                :alt="artist?.name"
-              />
-            </router-link>
-            <router-link :to="'/artist/' + album?.artist.id">
-              <div class="ml-4 text-lg font-normal">
-                {{ album?.artist.name }}
-              </div>
-            </router-link>
+          <div class="flex">
+            <div v-for="(artist, index) in artists" :key="index">
+              <router-link
+                :to="'/artist/' + artist.id"
+                class="mr-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition duration-300 hover:bg-primary-700"
+              >
+                <img
+                  class="w-11 rounded-full"
+                  :src="'/' + artist.thumbnail"
+                  :alt="artist.name"
+                />
+                <div class="ml-2 text-lg font-normal">
+                  {{ artist.name }}
+                </div>
+              </router-link>
+            </div>
           </div>
           <div class="font-semibold">
             {{ album?.year }}
@@ -80,10 +92,12 @@ const songs = computed(() => {
         </div>
       </div>
     </div>
+
     <div class="my-8 h-1 rounded-full bg-primary-500"></div>
+
     <div>
       <div
-        class="mb-4 mr-8 flex items-center"
+        class="group relative mx-4 flex items-center rounded-lg py-3 px-4 transition duration-300 hover:bg-primary-800"
         v-for="song in songs"
         :key="song.number"
       >
@@ -110,6 +124,12 @@ const songs = computed(() => {
           </div>
         </div>
         <div>{{ song.length }}</div>
+        <button
+          @click="playerStore.playSong(song)"
+          class="absolute z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
+        >
+          <PlayIcon class="w-4" />
+        </button>
       </div>
     </div>
   </div>

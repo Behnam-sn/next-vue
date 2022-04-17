@@ -14,9 +14,19 @@ defineProps<{
       <img class="rounded-xl" :src="'/' + album.thumbnail" :alt="album.title" />
       <div class="mt-2 font-Quicksand font-medium">{{ album.title }}</div>
       <div class="mt-1 flex font-Quicksand text-sm font-normal text-gray-400">
-        <router-link :to="'/artist/' + album.artist.id">
-          {{ album.artist.name }}
-        </router-link>
+        <template v-for="(artist, index) in album.artists" :key="index">
+          <router-link :to="'/artist/' + artist.id">
+            {{ artist.name }}
+          </router-link>
+          <span
+            v-if="
+              album.artists.length !== 1 && index !== album.artists.length - 1
+            "
+            class="mr-1"
+          >
+            ,
+          </span>
+        </template>
       </div>
     </div>
   </router-link>

@@ -13,10 +13,16 @@ export const useAlbumsStore = defineStore({
         {
           id: "GqiWvmgQCq",
           title: "everything i wanted",
-          artist: {
-            id: "F9ryzh3XwC",
-            name: "Billie Eilish",
-          },
+          artists: [
+            {
+              id: "F9ryzh3XwC",
+              name: "Billie Eilish",
+            },
+            {
+              id: "HkU6XoUMT3",
+              name: "Kendrick Lamar",
+            },
+          ],
           type: "Single",
           year: 2019,
           tracksCount: 1,
@@ -25,10 +31,12 @@ export const useAlbumsStore = defineStore({
         {
           id: "mjO5GVC4CS",
           title: "Evolve",
-          artist: {
-            id: "",
-            name: "Imagine Dragons",
-          },
+          artists: [
+            {
+              id: "",
+              name: "Imagine Dragons",
+            },
+          ],
           type: "LP",
           year: 2017,
           tracksCount: 14,
@@ -37,10 +45,12 @@ export const useAlbumsStore = defineStore({
         {
           id: "j08YqSsIbK",
           title: "Divide",
-          artist: {
-            id: "",
-            name: "Ed Sheeran",
-          },
+          artists: [
+            {
+              id: "",
+              name: "Ed Sheeran",
+            },
+          ],
           type: "LP",
           year: 2017,
           tracksCount: 16,
@@ -49,10 +59,12 @@ export const useAlbumsStore = defineStore({
         {
           id: "g3Ivem8wBY",
           title: "After Hours",
-          artist: {
-            id: "",
-            name: "The Weeknd",
-          },
+          artists: [
+            {
+              id: "",
+              name: "The Weeknd",
+            },
+          ],
           type: "LP",
           year: 2020,
           tracksCount: 14,
@@ -61,10 +73,12 @@ export const useAlbumsStore = defineStore({
         {
           id: "e8hUylGqE3",
           title: "Scorpion",
-          artist: {
-            id: "",
-            name: "Drake",
-          },
+          artists: [
+            {
+              id: "",
+              name: "Drake",
+            },
+          ],
           type: "LP",
           year: 2018,
           tracksCount: 25,
@@ -73,10 +87,12 @@ export const useAlbumsStore = defineStore({
         {
           id: "dKQ4BeANiD",
           title: "Happier Than Ever",
-          artist: {
-            id: "F9ryzh3XwC",
-            name: "Billie Eilish",
-          },
+          artists: [
+            {
+              id: "F9ryzh3XwC",
+              name: "Billie Eilish",
+            },
+          ],
           type: "LP",
           year: 2021,
           tracksCount: 16,
@@ -90,15 +106,19 @@ export const useAlbumsStore = defineStore({
         state.albums.find((album) => album.id === AlbumId);
     },
     getAlbumsByArtist: (state) => {
-      return (ArtistId: string) =>
-        state.albums.filter(
-          (album) => album.artist.id === ArtistId && album.type !== "Single"
+      return (artistId: string) =>
+        state.albums.filter((album) =>
+          album.artists.find(
+            (artist) => artist.id === artistId && album.type !== "Single"
+          )
         );
     },
     getSinglesByArtist: (state) => {
-      return (ArtistId: string) =>
-        state.albums.filter(
-          (album) => album.artist.id === ArtistId && album.type === "Single"
+      return (artistId: string) =>
+        state.albums.filter((album) =>
+          album.artists.find(
+            (artist) => artist.id === artistId && album.type === "Single"
+          )
         );
     },
   },

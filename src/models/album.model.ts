@@ -1,7 +1,7 @@
 export interface Album {
   id: string;
   title: string;
-  artist: Artist;
+  artists: Artist[];
   type: string;
   year: number;
   tracksCount: number;
