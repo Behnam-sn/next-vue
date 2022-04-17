@@ -58,7 +58,7 @@ const popularSongs = computed(() => {
           :alt="artist?.name"
         />
       </div>
-      <div class="px-8">
+      <div class="pl-12">
         <div class="mb-4 text-6xl font-bold">{{ artist?.name }}</div>
         <div class="font-semibold text-neutral-400">
           {{ artist?.monthlyListeners }} Monthy Listeners
