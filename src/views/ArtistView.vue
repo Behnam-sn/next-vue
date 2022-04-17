@@ -70,10 +70,10 @@ const popularSongs = computed(() => {
       <TitleBar text="Popular" />
       <div v-for="(song, index) in popularSongs" :key="song.id">
         <router-link
-          class="mb-6 ml-10 flex items-center"
+          class="mx-4 mb-2 flex items-center rounded-lg py-3 transition duration-300 hover:bg-primary-800"
           :to="'/album/' + song.albumId"
         >
-          <div class="w-3 text-lg">{{ index + 1 }}</div>
+          <div class="ml-8 w-4 text-lg">{{ index + 1 }}</div>
           <img
             class="mx-7 w-16"
             :src="'/img/' + song.thumbnail"
