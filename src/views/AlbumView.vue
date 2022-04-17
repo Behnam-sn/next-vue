@@ -97,11 +97,11 @@ const songs = computed(() => {
 
     <div>
       <div
-        class="group relative mx-4 flex items-center rounded-lg py-3 px-4 transition duration-300 hover:bg-primary-800"
+        class="group relative mx-4 flex items-center rounded-lg py-5 px-4 transition duration-300 hover:bg-primary-800"
         v-for="song in songs"
         :key="song.number"
       >
-        <div class="p-4 text-lg">{{ song.number }}</div>
+        <div class="ml-4 w-6 text-lg">{{ song.number }}</div>
         <div class="ml-8 grow">
           <div>{{ song.title }}</div>
           <div class="flex text-sm text-neutral-400">
@@ -126,7 +126,7 @@ const songs = computed(() => {
         <div>{{ song.length }}</div>
         <button
           @click="playerStore.playSong(song)"
-          class="absolute z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
+          class="absolute z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
         >
           <PlayIcon class="w-4" />
         </button>
