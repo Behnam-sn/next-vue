@@ -2,16 +2,20 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
+import PlayIcon from "@/assets/icons/PlayIcon.vue";
+
 import TitleBar from "@/components/TitleBar.vue";
 import AlbumCard from "@/components/Cards/AlbumCard.vue";
 
 import { useArtistsStore } from "@/stores/artists";
 import { useAlbumsStore } from "@/stores/albums";
 import { useSongsStore } from "@/stores/songs";
+import { usePlayerStore } from "@/stores/player";
 
 const artistsStore = useArtistsStore();
 const albumsStore = useAlbumsStore();
 const songsStore = useSongsStore();
+const playerStore = usePlayerStore();
 const route = useRoute();
 
 const id = computed(() => {
@@ -68,9 +72,13 @@ const popularSongs = computed(() => {
 
     <template v-if="popularSongs.length">
       <TitleBar text="Popular" />
-      <div v-for="(song, index) in popularSongs" :key="song.id">
+      <div
+        class="group relative mx-4 mb-2 flex items-center rounded-lg py-3 transition duration-300 hover:bg-primary-800"
+        v-for="(song, index) in popularSongs"
+        :key="song.id"
+      >
         <router-link
-          class="mx-4 mb-2 flex items-center rounded-lg py-3 transition duration-300 hover:bg-primary-800"
+          class="flex grow items-center"
           :to="'/album/' + song.albumId"
         >
           <div class="ml-8 w-4 text-lg">{{ index + 1 }}</div>
@@ -81,6 +89,12 @@ const popularSongs = computed(() => {
           />
           <div class="text-lg">{{ song.title }}</div>
         </router-link>
+        <button
+          @click="playerStore.playSong(song)"
+          class="absolute left-3 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
+        >
+          <PlayIcon class="w-4" />
+        </button>
       </div>
     </template>
 
