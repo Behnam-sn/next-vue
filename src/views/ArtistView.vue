@@ -2,10 +2,9 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
-import PlayIcon from "@/assets/icons/PlayIcon.vue";
-
 import TitleBar from "@/components/TitleBar.vue";
 import AlbumCard from "@/components/Cards/AlbumCard.vue";
+import PlayButton from "@/components/PlayButton.vue";
 
 import { useArtistsStore } from "@/stores/artists";
 import { useAlbumsStore } from "@/stores/albums";
@@ -89,12 +88,7 @@ const popularSongs = computed(() => {
           />
           <div class="text-lg">{{ song.title }}</div>
         </router-link>
-        <button
-          @click="playerStore.playSong(song)"
-          class="absolute left-3 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
-        >
-          <PlayIcon class="w-4" />
-        </button>
+        <PlayButton class="left-3" @click="playerStore.playSong(song)" />
       </div>
     </template>
 

@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
-import PlayIcon from "@/assets/icons/PlayIcon.vue";
+import PlayButton from "@/components/PlayButton.vue";
 
 import { useAlbumsStore } from "@/stores/albums";
 import { useArtistsStore } from "@/stores/artists";
@@ -124,12 +124,7 @@ const songs = computed(() => {
           </div>
         </div>
         <div>{{ song.length }}</div>
-        <button
-          @click="playerStore.playSong(song)"
-          class="absolute z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
-        >
-          <PlayIcon class="w-4" />
-        </button>
+        <PlayButton @click="playerStore.playSong(song)" />
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Song } from "@/models/song.model";
 
-import PlayIcon from "@/assets/icons/PlayIcon.vue";
+import PlayButton from "@/components/PlayButton.vue";
 
 import { usePlayerStore } from "@/stores/player";
 const playerStore = usePlayerStore();
@@ -42,11 +42,6 @@ defineProps<{
         </div>
       </div>
     </router-link>
-    <button
-      @click="playerStore.playSong(song)"
-      class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
-    >
-      <PlayIcon class="w-4" />
-    </button>
+    <PlayButton class="bottom-24 right-8" @click="playerStore.playSong(song)" />
   </div>
 </template>
