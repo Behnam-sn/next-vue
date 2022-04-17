@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <div
-    class="group relative mr-5 mb-5 h-72 w-48 cursor-pointer select-none rounded-xl bg-primary-800 shadow-lg transition duration-300 hover:bg-primary-700 lg:w-56"
+    class="group relative mr-5 mb-5 h-72 w-48 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:w-56"
   >
     <router-link :to="'/album/' + song.albumId">
       <div class="p-6">
@@ -44,7 +44,7 @@ defineProps<{
     </router-link>
     <button
       @click="playerStore.playSong(song)"
-      class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
+      class="absolute bottom-24 right-8 z-20 flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-tertiary-900 fill-secondary-900 pl-1 shadow-lg transition duration-300 hover:bg-tertiary-800 group-hover:scale-100"
     >
       <PlayIcon class="w-4" />
     </button>
