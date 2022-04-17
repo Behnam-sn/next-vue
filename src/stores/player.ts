@@ -13,18 +13,18 @@ export const usePlayerStore = defineStore({
     ({
       queue: [
         {
-          id: "Ueu1aVwooq",
+          id: "0xkIqujRyf",
+          title: "Take My Breath",
           artists: [
             {
-              id: "",
-              name: "Ed Sheeran",
+              id: "UoyxnRAsCv",
+              name: "The Weeknd",
             },
           ],
-          title: "Shape of You",
-          albumId: "j08YqSsIbK",
+          albumId: "6h6pfhg9Bw",
           number: 4,
-          length: "03:53",
-          thumbnail: "nGRl72oCIc.png",
+          length: "03:41",
+          thumbnail: "iHzGJrkWxt.png",
           fileName: "",
         },
       ],

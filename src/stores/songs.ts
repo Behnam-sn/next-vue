@@ -12,13 +12,13 @@ export const useSongsStore = defineStore({
       songs: [
         {
           id: "lUfBssvFSD",
+          title: "everything i wanted",
           artists: [
             {
               id: "F9ryzh3XwC",
               name: "Billie Eilish",
             },
           ],
-          title: "everything i wanted",
           albumId: "GqiWvmgQCq",
           number: 1,
           length: "04:05",
@@ -27,6 +27,7 @@ export const useSongsStore = defineStore({
         },
         {
           id: "MfSBPBTt8F",
+          title: "lovely",
           artists: [
             {
               id: "F9ryzh3XwC",
@@ -37,7 +38,6 @@ export const useSongsStore = defineStore({
               name: "Khalid",
             },
           ],
-          title: "lovely",
           albumId: "cy9ePORsIT",
           number: 1,
           length: "03:21",
@@ -46,13 +46,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "PsKd45Idbv",
+          title: "No Time To Die",
           artists: [
             {
               id: "F9ryzh3XwC",
               name: "Billie Eilish",
             },
           ],
-          title: "No Time To Die",
           albumId: "unRyI4kTA1",
           number: 1,
           length: "04:03",
@@ -61,13 +61,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "wIqu7NVPnB",
+          title: "GOLDWING",
           artists: [
             {
               id: "F9ryzh3XwC",
               name: "Billie Eilish",
             },
           ],
-          title: "GOLDWING",
           albumId: "dKQ4BeANiD",
           number: 6,
           length: "02:31",
@@ -76,13 +76,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "lznZ1V5Crv",
+          title: "Happier Than Ever",
           artists: [
             {
               id: "F9ryzh3XwC",
               name: "Billie Eilish",
             },
           ],
-          title: "Happier Than Ever",
           albumId: "dKQ4BeANiD",
           number: 15,
           length: "04:58",
@@ -91,13 +91,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "wkbkIU5bjB",
+          title: "Blinding Lights",
           artists: [
             {
               id: "UoyxnRAsCv",
               name: "The Weeknd",
             },
           ],
-          title: "Blinding Lights",
           albumId: "iU3dHGj55w",
           number: 9,
           length: "03:21",
@@ -106,13 +106,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "QLknrbUFPQ",
+          title: "After Hours",
           artists: [
             {
               id: "UoyxnRAsCv",
               name: "The Weeknd",
             },
           ],
-          title: "After Hours",
           albumId: "iU3dHGj55w",
           number: 13,
           length: "06:01",
@@ -121,13 +121,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "icg7BLOr6g",
+          title: "Moth to a Flame",
           artists: [
             {
               id: "UoyxnRAsCv",
               name: "The Weeknd",
             },
           ],
-          title: "Moth to a Flame",
           albumId: "GKllunkgyA",
           number: 1,
           length: "03:54",
@@ -136,13 +136,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "0xkIqujRyf",
+          title: "Take My Breath",
           artists: [
             {
               id: "UoyxnRAsCv",
               name: "The Weeknd",
             },
           ],
-          title: "Take My Breath",
           albumId: "6h6pfhg9Bw",
           number: 4,
           length: "03:41",
@@ -151,13 +151,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "Ueu1aVwooq",
+          title: "Shape of You",
           artists: [
             {
               id: "AniAyE0vZm",
               name: "Ed Sheeran",
             },
           ],
-          title: "Shape of You",
           albumId: "A1QVDv1dME",
           number: 4,
           length: "03:53",
@@ -166,13 +166,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "0J6geA3yiQ",
+          title: "Castle on the Hill",
           artists: [
             {
               id: "AniAyE0vZm",
               name: "Ed Sheeran",
             },
           ],
-          title: "Castle on the Hill",
           albumId: "A1QVDv1dME",
           number: 2,
           length: "04:22",
@@ -181,13 +181,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "JsCe4XroJR",
+          title: "HUMBLE.",
           artists: [
             {
               id: "HkU6XoUMT3",
               name: "Kendrick Lamar",
             },
           ],
-          title: "HUMBLE.",
           albumId: "vyYrf2NfLL",
           number: 8,
           length: "02:57",
@@ -196,13 +196,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "89rlVU1j7n",
+          title: "DNA.",
           artists: [
             {
               id: "HkU6XoUMT3",
               name: "Kendrick Lamar",
             },
           ],
-          title: "DNA.",
           albumId: "vyYrf2NfLL",
           number: 2,
           length: "03:06",
@@ -211,13 +211,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "j8gBO0OyC7",
+          title: "Money Trees",
           artists: [
             {
               id: "HkU6XoUMT3",
               name: "Kendrick Lamar",
             },
           ],
-          title: "Money Trees",
           albumId: "mTw3nm3WYU",
           number: 5,
           length: "06:27",
@@ -226,13 +226,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "MBDWNciZJa",
+          title: "Mehmoone Man",
           artists: [
             {
               id: "uRrM8f1FsB",
               name: "Dayan",
             },
           ],
-          title: "Mehmoone Man",
           albumId: "unzrsRAvwP",
           number: 1,
           length: "03:08",
@@ -241,13 +241,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "G8lDUw5bws",
+          title: "Khasteh Shodam",
           artists: [
             {
               id: "uRrM8f1FsB",
               name: "Dayan",
             },
           ],
-          title: "Khasteh Shodam",
           albumId: "Z9kSscsA02",
           number: 1,
           length: "03:26",
@@ -256,13 +256,13 @@ export const useSongsStore = defineStore({
         },
         {
           id: "xmqYwfsExU",
+          title: "Miram Kooh",
           artists: [
             {
               id: "uRrM8f1FsB",
               name: "Dayan",
             },
           ],
-          title: "Miram Kooh",
           albumId: "l92oNYU0xP",
           number: 1,
           length: "03:03",

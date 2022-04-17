@@ -1,7 +1,7 @@
 export interface Song {
   id: string;
-  artists: Artist[];
   title: string;
+  artists: Artist[];
   albumId: string;
   number: number;
   length: string;
