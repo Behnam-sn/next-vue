@@ -280,7 +280,9 @@ export const useSongsStore = defineStore({
     },
     getSongsByAlbum: (state) => {
       return (AlbumId: string) =>
-        state.songs.filter((song) => song.albumId === AlbumId);
+        state.songs
+          .filter((song) => song.albumId === AlbumId)
+          .sort((a, b) => (a.number > b.number ? 1 : -1));
     },
     searchSongsByTitle: (state) => {
       return (text: string) =>
