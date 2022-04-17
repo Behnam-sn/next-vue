@@ -282,6 +282,12 @@ export const useSongsStore = defineStore({
       return (AlbumId: string) =>
         state.songs.filter((song) => song.albumId === AlbumId);
     },
+    searchSongsByTitle: (state) => {
+      return (text: string) =>
+        state.songs.filter((song) =>
+          song.title.toLowerCase().includes(text.toLowerCase())
+        );
+    },
   },
   actions: {},
 });

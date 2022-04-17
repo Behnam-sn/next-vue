@@ -219,6 +219,12 @@ export const useAlbumsStore = defineStore({
           )
         );
     },
+    searchAlbumsByTitle: (state) => {
+      return (text: string) =>
+        state.albums.filter((album) =>
+          album.title.toLowerCase().includes(text.toLowerCase())
+        );
+    },
   },
   actions: {},
 });

@@ -59,6 +59,12 @@ export const useArtistsStore = defineStore({
       return (ArtistId: string) =>
         state.artists.find((artist) => artist.id === ArtistId);
     },
+    searchArtistsByName: (state) => {
+      return (text: string) =>
+        state.artists.filter((artist) =>
+          artist.name.toLowerCase().includes(text.toLowerCase())
+        );
+    },
   },
   actions: {},
 });
