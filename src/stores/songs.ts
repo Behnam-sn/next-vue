@@ -23,7 +23,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "04:05",
           thumbnail: "a7z491lObd.png",
-          fileName: "",
+          src: "cRh6BAT6xY.mp3",
         },
         {
           id: "MfSBPBTt8F",
@@ -42,7 +42,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "03:21",
           thumbnail: "TcXdvyfhop.jpg",
-          fileName: "",
+          src: "Aq54zh8Txx.mp3",
         },
         {
           id: "PsKd45Idbv",
@@ -57,7 +57,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "04:03",
           thumbnail: "Lppz920huj.png",
-          fileName: "",
+          src: "ps63YmU8nA.mp3",
         },
         {
           id: "wIqu7NVPnB",
@@ -72,7 +72,7 @@ export const useSongsStore = defineStore({
           number: 6,
           length: "02:31",
           thumbnail: "EVEHF7pGMO.png",
-          fileName: "",
+          src: "q8Eu8e4G0p.mp3",
         },
         {
           id: "lznZ1V5Crv",
@@ -87,7 +87,7 @@ export const useSongsStore = defineStore({
           number: 15,
           length: "04:58",
           thumbnail: "EVEHF7pGMO.png",
-          fileName: "",
+          src: "IJCnnbFHRS.mp3",
         },
         {
           id: "wkbkIU5bjB",
@@ -102,7 +102,7 @@ export const useSongsStore = defineStore({
           number: 9,
           length: "03:21",
           thumbnail: "vmabIaGSyw.jpg",
-          fileName: "",
+          src: "PtJFLtu8ty.mp3",
         },
         {
           id: "QLknrbUFPQ",
@@ -117,7 +117,7 @@ export const useSongsStore = defineStore({
           number: 13,
           length: "06:01",
           thumbnail: "5xUwktQM79.jpg",
-          fileName: "",
+          src: "iJyFK7jDv4.mp3",
         },
         {
           id: "icg7BLOr6g",
@@ -132,7 +132,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "03:54",
           thumbnail: "RLuBZBGzxO.png",
-          fileName: "",
+          src: "1e4yLogCGE.mp3",
         },
         {
           id: "0xkIqujRyf",
@@ -147,7 +147,7 @@ export const useSongsStore = defineStore({
           number: 4,
           length: "03:41",
           thumbnail: "iHzGJrkWxt.png",
-          fileName: "",
+          src: "xpYugmcWiK.mp3",
         },
         {
           id: "Ueu1aVwooq",
@@ -162,7 +162,7 @@ export const useSongsStore = defineStore({
           number: 4,
           length: "03:53",
           thumbnail: "nGRl72oCIc.png",
-          fileName: "",
+          src: "HYQUzmjbdP.mp3",
         },
         {
           id: "0J6geA3yiQ",
@@ -177,7 +177,7 @@ export const useSongsStore = defineStore({
           number: 2,
           length: "04:22",
           thumbnail: "YfnPmLuQfW.jpg",
-          fileName: "",
+          src: "Oho8gwtyOu.mp3",
         },
         {
           id: "JsCe4XroJR",
@@ -192,7 +192,7 @@ export const useSongsStore = defineStore({
           number: 8,
           length: "02:57",
           thumbnail: "XnkQozD6Xh.png",
-          fileName: "",
+          src: "DNxHYsK18s.mp3",
         },
         {
           id: "89rlVU1j7n",
@@ -207,7 +207,7 @@ export const useSongsStore = defineStore({
           number: 2,
           length: "03:06",
           thumbnail: "vPWHbUbUN1.png",
-          fileName: "",
+          src: "UYVvuTvmDJ.mp3",
         },
         {
           id: "j8gBO0OyC7",
@@ -222,7 +222,7 @@ export const useSongsStore = defineStore({
           number: 5,
           length: "06:27",
           thumbnail: "wW2oKHM4mv.jpg",
-          fileName: "",
+          src: "6Ofp9xL6VK.mp3",
         },
         {
           id: "MBDWNciZJa",
@@ -237,7 +237,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "03:08",
           thumbnail: "BrfNADch5N.jpg",
-          fileName: "",
+          src: "xLUunbOv3Q.mp3",
         },
         {
           id: "G8lDUw5bws",
@@ -252,7 +252,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "03:26",
           thumbnail: "MApeAYURA6.jpg",
-          fileName: "",
+          src: "7HT7Bi4gle.mp3",
         },
         {
           id: "xmqYwfsExU",
@@ -267,7 +267,7 @@ export const useSongsStore = defineStore({
           number: 1,
           length: "03:03",
           thumbnail: "9Brc3rUvrC.jpg",
-          fileName: "",
+          src: "eajFrynp8Y.mp3",
         },
       ],
     } as State),

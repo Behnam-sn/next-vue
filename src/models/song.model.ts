@@ -6,7 +6,7 @@ export interface Song {
   number: number;
   length: string;
   thumbnail: string;
-  fileName: string;
+  src: string;
 }
 
 interface Artist {
