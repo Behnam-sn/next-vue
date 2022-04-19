@@ -1,45 +1,55 @@
 import { defineStore } from "pinia";
 import { useUserStore } from "@/stores/user";
+import { useSongsStore } from "@/stores/songs";
 import type { Song } from "@/models/song.model";
 
 interface State {
   queue: Song[];
   currentIndex: number;
+  isPaused: boolean;
 }
 
 export const usePlayerStore = defineStore({
   id: "player",
   state: () =>
     ({
-      queue: [
-        {
-          id: "0xkIqujRyf",
-          title: "Take My Breath",
-          artists: [
-            {
-              id: "UoyxnRAsCv",
-              name: "The Weeknd",
-            },
-          ],
-          albumId: "6h6pfhg9Bw",
-          number: 4,
-          length: "03:41",
-          thumbnail: "iHzGJrkWxt.png",
-          fileName: "",
-        },
-      ],
+      queue: [],
       currentIndex: 0,
+      isPaused: true,
     } as State),
   getters: {
     currnetSong: (state) => state.queue[state.currentIndex],
   },
   actions: {
-    playSong(song: Song): void {
+    playSong(song: Song) {
       this.queue = [song];
       this.currentIndex = 0;
+      this.isPaused = false;
 
       const userStore = useUserStore();
-      userStore.addToRecents(song);
+      userStore.replaceQueue(this.queue);
+      // userStore.addToRecents(song);
+    },
+    playAlbum(albumId: string) {
+      const songsStore = useSongsStore();
+      this.queue = songsStore.getSongsByAlbum(albumId);
+      this.currentIndex = 0;
+      this.isPaused = false;
+
+      const userStore = useUserStore();
+      userStore.replaceQueue(this.queue);
+    },
+    next() {
+      if (this.currentIndex !== this.queue.length - 1) {
+        this.currentIndex++;
+        this.isPaused = false;
+      }
+    },
+    pervious() {
+      if (this.currentIndex !== 0) {
+        this.currentIndex--;
+        this.isPaused = false;
+      }
     },
   },
 });

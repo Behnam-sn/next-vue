@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
+import { Howl } from "howler";
 
 import ShuffleIcon from "@/assets/icons/ShuffleIcon.vue";
 import RepeatIcon from "@/assets/icons/RepeatIcon.vue";
@@ -17,8 +18,12 @@ import { useUserStore } from "@/stores/user";
 const playerStore = usePlayerStore();
 const userStore = useUserStore();
 
+var sound = new Howl({
+  src: [`/audio/${playerStore.currnetSong.src}`],
+});
+
 const isMute = ref(false);
-const isPaused = ref(false);
+// const isPaused = ref(false);
 
 const isLiked = computed(() => {
   return userStore.isInLikedSong(playerStore.currnetSong.id);
@@ -31,6 +36,33 @@ function likeSong() {
     userStore.addToLikedSongs(playerStore.currnetSong);
   }
 }
+
+function play() {
+  if (playerStore.isPaused) {
+    sound.play();
+  } else {
+    sound.pause();
+  }
+
+  playerStore.isPaused = !playerStore.isPaused;
+}
+
+watch(
+  () => playerStore.currnetSong,
+  (newSong) => {
+    console.log("hel");
+    sound.unload();
+    sound = new Howl({
+      src: [`/audio/${newSong.src}`],
+    });
+
+    sound.play();
+
+    // if (!playerStore.isPaused) {
+    //   sound.play();
+    // }
+  }
+);
 </script>
 
 <template>
@@ -83,14 +115,14 @@ function likeSong() {
         <button class="cursor-pointer py-2 px-3">
           <ShuffleIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3">
+        <button class="cursor-pointer py-2 px-3" @click="playerStore.pervious">
           <BackwardIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="isPaused = !isPaused">
-          <PauseIcon v-if="isPaused" class="h-7 w-5" />
-          <PlayIcon v-else class="h-7 w-5" />
+        <button class="cursor-pointer py-2 px-3" @click="play">
+          <PlayIcon v-if="playerStore.isPaused" class="h-7 w-5" />
+          <PauseIcon v-else class="h-7 w-5" />
         </button>
-        <button class="cursor-pointer py-2 px-3">
+        <button class="cursor-pointer py-2 px-3" @click="playerStore.next">
           <ForwardIcon class="w-4" />
         </button>
         <button class="cursor-pointer py-2 px-3">
