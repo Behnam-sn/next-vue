@@ -1,5 +1,8 @@
 import { defineStore } from "pinia";
+
 import { useSongsStore } from "@/stores/songs";
+import { usePlayerStore } from "@/stores/player";
+
 import type { Song } from "@/models/song.model";
 
 interface State {
@@ -16,7 +19,7 @@ export const useUserStore = defineStore({
     } as State),
   getters: {},
   actions: {
-    addToLikedSongs(song: Song): void {
+    addToLikedSongs(song: Song) {
       this.likedSongs.push(song);
       const localStorageLikedSongs = localStorage.getItem("likedSongs");
       if (localStorageLikedSongs) {
@@ -25,7 +28,7 @@ export const useUserStore = defineStore({
         localStorage.setItem("likedSongs", JSON.stringify(likedSongsId));
       }
     },
-    removeFromLikedSongs(song: Song): void {
+    removeFromLikedSongs(song: Song) {
       const index = this.likedSongs.indexOf(song);
       if (index > -1) {
         this.likedSongs.splice(index, 1);
@@ -48,7 +51,7 @@ export const useUserStore = defineStore({
       }
       return false;
     },
-    addToRecents(song: Song): void {
+    addToRecents(song: Song) {
       this.recents.push(song);
 
       const localStorageRecents = localStorage.getItem("recents");
@@ -61,8 +64,12 @@ export const useUserStore = defineStore({
         localStorage.setItem("recents", JSON.stringify(recentsId));
       }
     },
-    fetchLocalStorageData(): void {
+    replaceQueue(songs: Song[]) {
+      localStorage.setItem("queue", JSON.stringify(songs));
+    },
+    fetchLocalStorageData() {
       const songsStore = useSongsStore();
+      const playerStore = usePlayerStore();
 
       const localStorageLikedSongs = localStorage.getItem("likedSongs");
       if (localStorageLikedSongs) {
@@ -88,6 +95,49 @@ export const useUserStore = defineStore({
         }
       } else {
         localStorage.setItem("recents", "[]");
+      }
+
+      const localStorageQueue = localStorage.getItem("queue");
+      if (localStorageQueue) {
+        playerStore.queue = JSON.parse(localStorageQueue);
+      } else {
+        playerStore.queue = [
+          {
+            id: "0xkIqujRyf",
+            title: "Take My Breath",
+            artists: [
+              {
+                id: "UoyxnRAsCv",
+                name: "The Weeknd",
+              },
+            ],
+            albumId: "6h6pfhg9Bw",
+            number: 4,
+            length: "03:41",
+            thumbnail: "iHzGJrkWxt.png",
+            src: "xpYugmcWiK.mp3",
+          },
+        ];
+        localStorage.setItem(
+          "queue",
+          JSON.stringify([
+            {
+              id: "0xkIqujRyf",
+              title: "Take My Breath",
+              artists: [
+                {
+                  id: "UoyxnRAsCv",
+                  name: "The Weeknd",
+                },
+              ],
+              albumId: "6h6pfhg9Bw",
+              number: 4,
+              length: "03:41",
+              thumbnail: "iHzGJrkWxt.png",
+              src: "xpYugmcWiK.mp3",
+            },
+          ])
+        );
       }
     },
   },
