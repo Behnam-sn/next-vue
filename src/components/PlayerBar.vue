@@ -23,6 +23,17 @@ var sound = new Howl({
 });
 
 const volume = ref(100);
+const track = ref(0);
+
+const minutes = computed(() => {
+  let temp = Math.round(playerStore.currnetSong.duration / 60);
+  return ("0" + temp).slice(-2);
+});
+
+const seconds = computed(() => {
+  let temp = Math.round(playerStore.currnetSong.duration % 60);
+  return ("0" + temp).slice(-2);
+});
 
 const isLiked = computed(() => {
   return userStore.isInLikedSong(playerStore.currnetSong.id);
@@ -59,9 +70,9 @@ function mute() {
 watch(
   () => playerStore.currnetSong,
   (newSong) => {
-    console.log("hel");
     sound.unload();
     sound = new Howl({
+      html5: true,
       autoplay: true,
       src: [`/audio/${newSong.src}`],
     });
@@ -72,6 +83,10 @@ watch(
 
 watch(volume, (newVolume) => {
   Howler.volume(newVolume / 10);
+});
+
+watch(track, (newTrack) => {
+  sound.seek(newTrack);
 });
 </script>
 
@@ -153,14 +168,14 @@ watch(volume, (newVolume) => {
       <div class="flex items-center justify-center">
         <div class="w-10">0:00</div>
         <input
+          v-model="track"
           type="range"
-          min="1"
-          max="100"
-          value="0"
+          min="0"
+          :max="playerStore.currnetSong.duration"
           id="audio"
           class="slide mx-4 w-[30rem]"
         />
-        <div class="w-10">{{ playerStore.currnetSong.length }}</div>
+        <div class="w-10">{{ `${minutes}:${seconds}` }}</div>
       </div>
     </div>
 
