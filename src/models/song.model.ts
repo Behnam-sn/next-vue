@@ -4,7 +4,7 @@ export interface Song {
   artists: Artist[];
   albumId: string;
   number: number;
-  length: string;
+  duration: number;
   thumbnail: string;
   src: string;
 }
