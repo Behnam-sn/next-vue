@@ -59,3 +59,24 @@ body {
 nav .router-link-active {
   @apply bg-tertiary-800;
 }
+
+.slide {
+  @apply relative flex items-center;
+}
+.slide input {
+  @apply absolute z-10 w-full cursor-pointer appearance-none bg-transparent;
+}
+
+.slide input::-webkit-slider-thumb {
+  @apply h-4 w-4 appearance-none rounded-full border-none bg-secondary-900 outline-none;
+}
+
+.slide progress {
+  @apply absolute h-2 w-full appearance-none overflow-hidden rounded-full;
+}
+.slide progress::-webkit-progress-bar {
+  @apply bg-secondary-900/30;
+}
+.slide progress::-webkit-progress-value {
+  @apply bg-secondary-900;
+}

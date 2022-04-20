@@ -75,6 +75,15 @@ watch(
       html5: true,
       autoplay: true,
       src: [`/audio/${newSong.src}`],
+      onload: function () {
+        // Start the wave animation.
+        console.log(sound.duration());
+        track.value = 0;
+      },
+      onplay: function () {
+        // Start updating the progress of the track.
+        console.log(sound.seek());
+      },
     });
 
     userStore.addToRecents(newSong);
@@ -167,14 +176,19 @@ watch(track, (newTrack) => {
       </div>
       <div class="flex items-center justify-center">
         <div class="w-10">0:00</div>
-        <input
-          v-model="track"
-          type="range"
-          min="0"
-          :max="playerStore.currnetSong.duration"
-          id="audio"
-          class="slide mx-4 w-[30rem]"
-        />
+        <div class="slide mx-4 w-[30rem]">
+          <input
+            v-model="track"
+            type="range"
+            min="0"
+            :max="playerStore.currnetSong.duration"
+          />
+          <progress
+            :value="track"
+            min="0"
+            :max="playerStore.currnetSong.duration"
+          ></progress>
+        </div>
         <div class="w-10">{{ `${minutes}:${seconds}` }}</div>
       </div>
     </div>
@@ -187,31 +201,10 @@ watch(track, (newTrack) => {
         <MuteIcon v-if="playerStore.isMute" class="w-7" />
         <VolumeIcon v-else class="w-7" />
       </button>
-      <div>
-        <input
-          v-model="volume"
-          type="range"
-          min="0"
-          max="10"
-          id="volume"
-          class="slide w-28"
-        />
+      <div class="slide w-28">
+        <input v-model="volume" type="range" min="0" max="10" />
+        <progress :value="volume" min="0" max="10"></progress>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.slide {
-  @apply h-2 cursor-pointer appearance-none overflow-hidden rounded-full bg-secondary-400 outline-none;
-}
-.slide::-webkit-slider-thumb {
-  @apply h-3 w-3 appearance-none bg-secondary-900;
-  box-shadow: -100vw 0 0 100vw #f8f9fa;
-}
-
-.slide::-moz-range-thumb {
-  @apply h-3 w-3 appearance-none bg-secondary-900;
-  box-shadow: -100vw 0 0 100vw #f8f9fa;
-}
-</style>
