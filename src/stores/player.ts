@@ -21,6 +21,7 @@ export const usePlayerStore = defineStore({
     } as State),
   getters: {
     currnetSong: (state) => state.queue[state.currentIndex],
+    lastIndex: (state) => state.queue.length - 1,
   },
   actions: {
     playSong(song: Song) {
@@ -49,7 +50,7 @@ export const usePlayerStore = defineStore({
       userStore.replaceQueue(this.queue);
     },
     next() {
-      if (this.currentIndex !== this.queue.length - 1) {
+      if (this.currentIndex !== this.lastIndex) {
         this.currentIndex++;
         this.isPaused = false;
       }

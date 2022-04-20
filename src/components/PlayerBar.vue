@@ -125,14 +125,25 @@ watch(volume, (newVolume) => {
         <button class="cursor-pointer py-2 px-3">
           <ShuffleIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="playerStore.pervious">
+        <button
+          class="cursor-pointer py-2 px-3"
+          :class="{ 'fill-secondary-900/40': playerStore.currentIndex === 0 }"
+          @click="playerStore.pervious"
+        >
           <BackwardIcon class="w-4" />
         </button>
         <button class="cursor-pointer py-2 px-3" @click="play">
           <PlayIcon v-if="playerStore.isPaused" class="h-7 w-5" />
           <PauseIcon v-else class="h-7 w-5" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="playerStore.next">
+        <button
+          class="cursor-pointer py-2 px-3"
+          :class="{
+            'fill-secondary-900/40':
+              playerStore.currentIndex === playerStore.lastIndex,
+          }"
+          @click="playerStore.next"
+        >
           <ForwardIcon class="w-4" />
         </button>
         <button class="cursor-pointer py-2 px-3">
