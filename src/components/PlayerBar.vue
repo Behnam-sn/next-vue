@@ -24,6 +24,7 @@ var sound = new Howl({
 
 const volume = ref(100);
 const track = ref(0);
+const isMouseDownOnTrack = ref(false);
 
 const minutes = computed(() => {
   let temp = Math.round(playerStore.currnetSong.duration / 60);
@@ -67,22 +68,29 @@ function mute() {
   }
 }
 
+function step() {
+  if (sound.playing()) {
+    track.value = Math.round(sound.seek());
+    requestAnimationFrame(step);
+  }
+}
+
 watch(
   () => playerStore.currnetSong,
   (newSong) => {
     sound.unload();
     sound = new Howl({
+      src: [`/audio/${newSong.src}`],
       html5: true,
       autoplay: true,
-      src: [`/audio/${newSong.src}`],
       onload: function () {
-        // Start the wave animation.
-        console.log(sound.duration());
         track.value = 0;
       },
       onplay: function () {
-        // Start updating the progress of the track.
-        console.log(sound.seek());
+        requestAnimationFrame(step);
+      },
+      onseek: function () {
+        requestAnimationFrame(step);
       },
     });
 
@@ -95,7 +103,9 @@ watch(volume, (newVolume) => {
 });
 
 watch(track, (newTrack) => {
-  sound.seek(newTrack);
+  if (isMouseDownOnTrack.value) {
+    sound.seek(newTrack);
+  }
 });
 </script>
 
@@ -168,6 +178,8 @@ watch(track, (newTrack) => {
         <div class="slide mx-4 w-[30rem]">
           <input
             v-model="track"
+            @mousedown="isMouseDownOnTrack = true"
+            @mouseup="isMouseDownOnTrack = false"
             type="range"
             min="0"
             :max="playerStore.currnetSong.duration"
