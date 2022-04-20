@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
-import { Howl } from "howler";
+import { Howl, Howler } from "howler";
 
 import ShuffleIcon from "@/assets/icons/ShuffleIcon.vue";
 import RepeatIcon from "@/assets/icons/RepeatIcon.vue";
@@ -22,9 +22,6 @@ var sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
 });
 
-const isMute = ref(false);
-// const isPaused = ref(false);
-
 const isLiked = computed(() => {
   return userStore.isInLikedSong(playerStore.currnetSong.id);
 });
@@ -38,13 +35,23 @@ function likeSong() {
 }
 
 function play() {
-  if (playerStore.isPaused) {
-    sound.play();
-  } else {
-    sound.pause();
-  }
-
   playerStore.isPaused = !playerStore.isPaused;
+
+  if (playerStore.isPaused) {
+    sound.pause();
+  } else {
+    sound.play();
+  }
+}
+
+function mute() {
+  playerStore.isMute = !playerStore.isMute;
+
+  if (playerStore.isMute) {
+    Howler.mute(true);
+  } else {
+    Howler.mute(false);
+  }
 }
 
 watch(
@@ -53,15 +60,11 @@ watch(
     console.log("hel");
     sound.unload();
     sound = new Howl({
+      autoplay: true,
       src: [`/audio/${newSong.src}`],
     });
 
-    sound.play();
     userStore.addToRecents(newSong);
-
-    // if (!playerStore.isPaused) {
-    //   sound.play();
-    // }
   }
 );
 </script>
@@ -148,8 +151,8 @@ watch(
       <button @click="likeSong" :class="{ 'fill-red-500': isLiked }">
         <HeartIcon class="w-7" />
       </button>
-      <button class="mx-4 cursor-pointer" @click="isMute = !isMute">
-        <MuteIcon v-if="isMute" class="w-7" />
+      <button class="mx-4 cursor-pointer" @click="mute">
+        <MuteIcon v-if="playerStore.isMute" class="w-7" />
         <VolumeIcon v-else class="w-7" />
       </button>
       <div>
