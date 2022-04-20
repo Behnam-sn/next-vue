@@ -22,23 +22,27 @@ var sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
 });
 
+const seekMinutes = ref("00");
+const seekSeconds = ref("00");
 const volume = ref(100);
 const track = ref(0);
 const isMouseDownOnTrack = ref(false);
 
-const minutes = computed(() => {
-  let temp = Math.round(playerStore.currnetSong.duration / 60);
-  return ("0" + temp).slice(-2);
+const durationMinutes = computed(() => {
+  return zeroPad(playerStore.currnetSong.duration / 60);
 });
 
-const seconds = computed(() => {
-  let temp = Math.round(playerStore.currnetSong.duration % 60);
-  return ("0" + temp).slice(-2);
+const durationSeconds = computed(() => {
+  return zeroPad(playerStore.currnetSong.duration % 60);
 });
 
 const isLiked = computed(() => {
   return userStore.isInLikedSong(playerStore.currnetSong.id);
 });
+
+function zeroPad(input: number) {
+  return ("0" + Math.round(input)).slice(-2);
+}
 
 function likeSong() {
   if (isLiked.value) {
@@ -71,6 +75,8 @@ function mute() {
 function step() {
   if (sound.playing()) {
     track.value = Math.round(sound.seek());
+    seekMinutes.value = zeroPad(track.value / 60);
+    seekSeconds.value = zeroPad(track.value % 60);
     requestAnimationFrame(step);
   }
 }
@@ -174,7 +180,7 @@ watch(track, (newTrack) => {
         </button>
       </div>
       <div class="flex items-center justify-center">
-        <div class="w-10">0:00</div>
+        <div class="w-10">{{ `${seekMinutes}:${seekSeconds}` }}</div>
         <div class="slide mx-4 w-[30rem]">
           <input
             v-model="track"
@@ -190,7 +196,7 @@ watch(track, (newTrack) => {
             :max="playerStore.currnetSong.duration"
           ></progress>
         </div>
-        <div class="w-10">{{ `${minutes}:${seconds}` }}</div>
+        <div class="w-10">{{ `${durationMinutes}:${durationSeconds}` }}</div>
       </div>
     </div>
 
