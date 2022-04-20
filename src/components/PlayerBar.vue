@@ -57,6 +57,7 @@ watch(
     });
 
     sound.play();
+    userStore.addToRecents(newSong);
 
     // if (!playerStore.isPaused) {
     //   sound.play();
