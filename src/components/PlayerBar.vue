@@ -111,7 +111,7 @@ watch(track, (newTrack) => {
 
 <template>
   <div
-    class="fixed bottom-4 left-56 right-4 z-10 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100"
+    class="fixed bottom-4 left-56 right-4 z-20 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100"
   >
     <div class="flex w-3/12 items-center">
       <div class="w-16">
