@@ -98,7 +98,7 @@ const songs = computed(() => {
     <div>
       <div
         class="group relative mx-4 flex items-center rounded-lg py-5 px-4 transition duration-300 hover:bg-primary-800"
-        v-for="song in songs"
+        v-for="(song, index) in songs"
         :key="song.number"
       >
         <div class="ml-4 w-6 text-lg">{{ song.number }}</div>
@@ -124,7 +124,7 @@ const songs = computed(() => {
           </div>
         </div>
         <div>{{ song.length }}</div>
-        <PlayButton @click="playerStore.playSong(song)" />
+        <PlayButton @click="playerStore.playSongs(songs, index)" />
       </div>
     </div>
   </div>

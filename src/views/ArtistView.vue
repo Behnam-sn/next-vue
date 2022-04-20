@@ -88,7 +88,10 @@ const popularSongs = computed(() => {
           />
           <div class="text-lg">{{ song.title }}</div>
         </router-link>
-        <PlayButton class="left-3" @click="playerStore.playSong(song)" />
+        <PlayButton
+          class="left-3"
+          @click="playerStore.playSongs(popularSongs, index)"
+        />
       </div>
     </template>
 

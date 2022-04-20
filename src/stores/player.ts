@@ -30,6 +30,14 @@ export const usePlayerStore = defineStore({
       userStore.replaceQueue(this.queue);
       // userStore.addToRecents(song);
     },
+    playSongs(songs: Song[], index: number) {
+      this.queue = songs;
+      this.currentIndex = index;
+      this.isPaused = false;
+
+      const userStore = useUserStore();
+      userStore.replaceQueue(this.queue);
+    },
     playAlbum(albumId: string) {
       const songsStore = useSongsStore();
       this.queue = songsStore.getSongsByAlbum(albumId);
