@@ -22,6 +22,8 @@ var sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
 });
 
+const volume = ref(100);
+
 const isLiked = computed(() => {
   return userStore.isInLikedSong(playerStore.currnetSong.id);
 });
@@ -67,6 +69,10 @@ watch(
     userStore.addToRecents(newSong);
   }
 );
+
+watch(volume, (newVolume) => {
+  Howler.volume(newVolume / 10);
+});
 </script>
 
 <template>
@@ -157,10 +163,10 @@ watch(
       </button>
       <div>
         <input
+          v-model="volume"
           type="range"
-          min="1"
-          max="100"
-          value="80"
+          min="0"
+          max="10"
           id="volume"
           class="slide w-28"
         />
