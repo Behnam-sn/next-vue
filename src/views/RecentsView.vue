@@ -10,7 +10,7 @@ const userStore = useUserStore();
   <div>
     <template v-if="userStore.recents.length">
       <TitleBar text="recents" />
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap justify-center">
         <div v-for="song in userStore.recents.slice().reverse()" :key="song.id">
           <SongCard :song="song" />
         </div>

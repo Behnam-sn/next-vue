@@ -9,7 +9,7 @@ const albumsStore = useAlbumsStore();
 <template>
   <div>
     <TitleBar text="albums" />
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-center">
       <div v-for="album in albumsStore.albums" :key="album.id">
         <AlbumCard :album="album" />
       </div>

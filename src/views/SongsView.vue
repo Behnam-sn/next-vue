@@ -9,7 +9,7 @@ const songsStore = useSongsStore();
 <template>
   <div>
     <TitleBar text="songs" />
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-center">
       <div v-for="song in songsStore.songs" :key="song.id">
         <SongCard :song="song" />
       </div>

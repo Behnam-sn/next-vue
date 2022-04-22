@@ -9,7 +9,7 @@ const artists = useArtistsStore();
 <template>
   <div>
     <TitleBar text="artists" />
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-center">
       <div v-for="artist in artists.artists" :key="artist.id">
         <ArtistCard :artist="artist" />
       </div>
