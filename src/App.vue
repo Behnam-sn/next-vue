@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import "lazysizes";
+import "swiper/css";
+
 import { RouterView } from "vue-router";
 
-import "swiper/css";
 import SideMenu from "@/components/SideMenu.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
 

@@ -18,8 +18,8 @@ defineProps<{
     <router-link :to="'/album/' + album.id">
       <div class="p-6">
         <img
-          class="rounded-xl"
-          :src="'/img/' + album.thumbnail"
+          class="lazyload h-44 w-44 rounded-xl bg-primary-500"
+          :data-src="`/img/${album.thumbnail}`"
           :alt="album.title"
         />
         <div class="mt-2 font-Quicksand font-medium text-secondary-900">

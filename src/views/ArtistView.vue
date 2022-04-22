@@ -54,13 +54,11 @@ const popularSongs = computed(() => {
 <template>
   <div class="mt-4 font-Quicksand font-medium">
     <div class="flex items-center">
-      <div class="w-60">
-        <img
-          class="rounded-full shadow-2xl"
-          :src="'/img/' + artist?.thumbnail"
-          :alt="artist?.name"
-        />
-      </div>
+      <img
+        class="lazyload h-60 w-60 rounded-full bg-primary-500 shadow-2xl"
+        :data-src="`/img/${artist?.thumbnail}`"
+        :alt="artist?.name"
+      />
       <div class="pl-12">
         <div class="mb-4 text-6xl font-bold">{{ artist?.name }}</div>
         <div class="font-semibold text-neutral-400">
@@ -82,8 +80,8 @@ const popularSongs = computed(() => {
         >
           <div class="ml-8 w-4 text-lg">{{ index + 1 }}</div>
           <img
-            class="mx-7 w-16"
-            :src="'/img/' + song.thumbnail"
+            class="lazyload mx-7 h-16 w-16"
+            :data-src="`/img/${song.thumbnail}`"
             :alt="song.title"
           />
           <div class="text-lg">{{ song.title }}</div>

@@ -48,13 +48,11 @@ const songs = computed(() => {
 <template>
   <div class="mt-4 font-Quicksand font-medium">
     <div class="mx-4 flex items-center">
-      <div class="w-60">
-        <img
-          class="rounded-xl shadow-2xl"
-          :src="'/img/' + album?.thumbnail"
-          :alt="album?.title"
-        />
-      </div>
+      <img
+        class="lazyload h-60 w-60 rounded-xl bg-primary-500 shadow-2xl"
+        :data-src="`/img/${album?.thumbnail}`"
+        :alt="album?.title"
+      />
       <div class="grow pl-8 pr-4">
         <div class="mb-8 flex items-center justify-between">
           <div class="text-3xl font-bold">
@@ -76,8 +74,8 @@ const songs = computed(() => {
                 class="mr-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition duration-300 hover:bg-primary-700"
               >
                 <img
-                  class="w-11 rounded-full"
-                  :src="'/img/' + artist.thumbnail"
+                  class="lazyload w-11 rounded-full"
+                  :data-src="`/img/${artist.thumbnail}`"
                   :alt="artist.name"
                 />
                 <div class="ml-2 font-normal">
@@ -123,7 +121,7 @@ const songs = computed(() => {
             </template>
           </div>
         </div>
-        <div>{{ song.length }}</div>
+        <div>{{ song.duration }}</div>
         <PlayButton @click="playerStore.playSongs(songs, index)" />
       </div>
     </div>
