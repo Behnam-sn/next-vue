@@ -185,31 +185,31 @@ watch(track, (newTrack) => {
     <div class="w-6/12">
       <div class="mb-1 flex items-center justify-center">
         <button
-          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
         >
           <ShuffleIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          class="mx-1 flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
           @click="playerStore.pervious"
         >
           <BackwardIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          class="mx-1 flex h-12 w-12 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
           @click="play"
         >
-          <PlayIcon v-if="playerStore.isPaused" class="h-7 w-5" />
-          <PauseIcon v-else class="h-7 w-5" />
+          <PlayIcon v-if="playerStore.isPaused" class="ml-1 w-6" />
+          <PauseIcon v-else class="w-6" />
         </button>
         <button
-          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          class="mx-1 flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
           @click="playerStore.next"
         >
           <ForwardIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
         >
           <RepeatIcon class="w-4" />
         </button>
@@ -218,12 +218,13 @@ watch(track, (newTrack) => {
         <div class="w-10">{{ `${seekMinutes}:${seekSeconds}` }}</div>
         <div class="slide mx-4 w-[30rem]">
           <input
+            class="outline-none"
             v-model="track"
-            @mousedown="isMouseDownOnTrack = true"
-            @mouseup="isMouseDownOnTrack = false"
             type="range"
             min="0"
             :max="playerStore.currnetSong.duration"
+            @mousedown="isMouseDownOnTrack = true"
+            @mouseup="isMouseDownOnTrack = false"
           />
           <progress
             :value="track"
@@ -236,15 +237,28 @@ watch(track, (newTrack) => {
     </div>
 
     <div class="flex w-3/12 items-center justify-end">
-      <button @click="likeSong" :class="{ 'fill-red-500': isLiked }">
+      <button
+        class="mx-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+        :class="{ 'fill-red-500': isLiked }"
+        @click="likeSong"
+      >
         <HeartIcon class="w-7" />
       </button>
-      <button class="mx-4 cursor-pointer" @click="mute">
+      <button
+        class="mx-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+        @click="mute"
+      >
         <MuteIcon v-if="playerStore.isMute" class="w-7" />
         <VolumeIcon v-else class="w-7" />
       </button>
       <div class="slide w-28">
-        <input v-model="volume" type="range" min="0" max="10" />
+        <input
+          class="outline-none"
+          v-model="volume"
+          type="range"
+          min="0"
+          max="10"
+        />
         <progress :value="volume" min="0" max="10"></progress>
       </div>
     </div>
