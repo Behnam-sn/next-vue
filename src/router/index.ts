@@ -49,6 +49,11 @@ const router = createRouter({
       component: () => import("@/views/RecentsView.vue"),
     },
     {
+      path: "/playlists",
+      name: "playlists",
+      redirect: "/",
+    },
+    {
       path: "/likedSongs",
       name: "likedSongs",
       component: () => import("@/views/LikedSongsView.vue"),
