@@ -194,6 +194,10 @@ watch(track, (newTrack) => {
       <div class="mb-1 flex items-center justify-center">
         <button
           class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          :class="{
+            'fill-secondary-900/30 hover:fill-secondary-900/60':
+              !playerStore.shuffle,
+          }"
         >
           <ShuffleIcon class="w-4" />
         </button>
