@@ -8,6 +8,7 @@ interface State {
   currentIndex: number;
   isPaused: boolean;
   isMute: boolean;
+  loop: boolean;
 }
 
 export const usePlayerStore = defineStore({
@@ -18,6 +19,7 @@ export const usePlayerStore = defineStore({
       currentIndex: 0,
       isPaused: true,
       isMute: false,
+      loop: false,
     } as State),
   getters: {
     currnetSong: (state) => state.queue[state.currentIndex],

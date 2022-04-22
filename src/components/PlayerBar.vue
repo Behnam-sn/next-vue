@@ -89,6 +89,11 @@ function mute() {
   }
 }
 
+function loop() {
+  playerStore.loop = !playerStore.loop;
+  sound.loop(playerStore.loop);
+}
+
 function step() {
   if (sound.playing()) {
     track.value = Math.round(sound.seek());
@@ -106,6 +111,7 @@ watch(
       src: [`/audio/${newSong.src}`],
       html5: true,
       autoplay: true,
+      loop: playerStore.loop,
       onload: function () {
         track.value = 0;
       },
@@ -116,10 +122,12 @@ watch(
         requestAnimationFrame(step);
       },
       onend: function () {
-        if (playerStore.currentIndex === playerStore.lastIndex) {
-          play();
-        } else {
-          playerStore.next();
+        if (!playerStore.loop) {
+          if (playerStore.currentIndex === playerStore.lastIndex) {
+            play();
+          } else {
+            playerStore.next();
+          }
         }
       },
     });
@@ -210,6 +218,11 @@ watch(track, (newTrack) => {
         </button>
         <button
           class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          :class="{
+            'fill-secondary-900/30 hover:fill-secondary-900/60':
+              !playerStore.loop,
+          }"
+          @click="loop"
         >
           <RepeatIcon class="w-4" />
         </button>
