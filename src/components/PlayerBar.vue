@@ -21,6 +21,7 @@ const userStore = useUserStore();
 var sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
   html5: true,
+  loop: playerStore.loop,
   onload: function () {
     track.value = 0;
   },
@@ -31,10 +32,12 @@ var sound = new Howl({
     requestAnimationFrame(step);
   },
   onend: function () {
-    if (playerStore.currentIndex === playerStore.lastIndex) {
-      play();
-    } else {
-      playerStore.next();
+    if (!playerStore.loop) {
+      if (playerStore.currentIndex === playerStore.lastIndex) {
+        play();
+      } else {
+        playerStore.next();
+      }
     }
   },
 });
