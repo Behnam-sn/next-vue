@@ -30,6 +30,13 @@ var sound = new Howl({
   onseek: function () {
     requestAnimationFrame(step);
   },
+  onend: function () {
+    if (playerStore.currentIndex === playerStore.lastIndex) {
+      play();
+    } else {
+      playerStore.next();
+    }
+  },
 });
 
 const seekMinutes = ref("00");
@@ -108,6 +115,13 @@ watch(
       onseek: function () {
         requestAnimationFrame(step);
       },
+      onend: function () {
+        if (playerStore.currentIndex === playerStore.lastIndex) {
+          play();
+        } else {
+          playerStore.next();
+        }
+      },
     });
 
     userStore.addToRecents(newSong);
@@ -130,13 +144,11 @@ watch(track, (newTrack) => {
     class="fixed bottom-4 left-56 right-4 z-20 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100"
   >
     <div class="flex w-3/12 items-center">
-      <div class="w-16">
-        <img
-          :src="'/img/' + playerStore.currnetSong.thumbnail"
-          alt=""
-          class="rounded-xl"
-        />
-      </div>
+      <img
+        class="h-16 w-16 rounded-xl bg-primary-500"
+        :src="`/img/${playerStore.currnetSong.thumbnail}`"
+        :alt="playerStore.currnetSong.title"
+      />
 
       <div class="ml-6 overflow-hidden">
         <router-link
@@ -172,20 +184,33 @@ watch(track, (newTrack) => {
 
     <div class="w-6/12">
       <div class="mb-1 flex items-center justify-center">
-        <button class="cursor-pointer py-2 px-3">
+        <button
+          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+        >
           <ShuffleIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="playerStore.pervious">
+        <button
+          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          @click="playerStore.pervious"
+        >
           <BackwardIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="play">
+        <button
+          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          @click="play"
+        >
           <PlayIcon v-if="playerStore.isPaused" class="h-7 w-5" />
           <PauseIcon v-else class="h-7 w-5" />
         </button>
-        <button class="cursor-pointer py-2 px-3" @click="playerStore.next">
+        <button
+          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+          @click="playerStore.next"
+        >
           <ForwardIcon class="w-4" />
         </button>
-        <button class="cursor-pointer py-2 px-3">
+        <button
+          class="mx-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full outline-none transition hover:bg-secondary-900/10"
+        >
           <RepeatIcon class="w-4" />
         </button>
       </div>
