@@ -8,5 +8,8 @@ Next is a music app
 - Pinia
 - Vue-Router
 - Tailwind CSS
+- Swiper
+- Lazysizes
+- Howler
 - Vite
 - TypeScript
