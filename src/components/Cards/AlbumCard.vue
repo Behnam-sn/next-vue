@@ -22,7 +22,7 @@ defineProps<{
           :data-src="`/img/${album.thumbnail}`"
           :alt="album.title"
         />
-        <div class="mt-2 font-Quicksand font-medium text-secondary-900">
+        <div class="mt-3 font-Quicksand font-medium text-secondary-900">
           {{ album.title }}
         </div>
         <div class="mt-1 flex font-Quicksand text-sm font-normal text-gray-400">
