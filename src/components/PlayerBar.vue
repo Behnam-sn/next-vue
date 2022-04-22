@@ -20,6 +20,16 @@ const userStore = useUserStore();
 
 var sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
+  html5: true,
+  onload: function () {
+    track.value = 0;
+  },
+  onplay: function () {
+    requestAnimationFrame(step);
+  },
+  onseek: function () {
+    requestAnimationFrame(step);
+  },
 });
 
 const seekMinutes = ref("00");
