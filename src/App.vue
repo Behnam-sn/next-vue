@@ -2,6 +2,7 @@
 import "lazysizes";
 import "swiper/css";
 
+import NavBar from "@/components/NavBar.vue";
 import SideMenu from "@/components/SideMenu.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
 
@@ -17,9 +18,10 @@ playerStore.fetchPlayerSettings();
 </script>
 
 <template>
+  <NavBar />
   <SideMenu />
   <PlayerBar />
-  <div class="px-8 pb-52 lg:ml-52">
+  <div class="mt-24 px-8 pb-52 lg:ml-52 xl:mt-5">
     <RouterView />
   </div>
 </template>

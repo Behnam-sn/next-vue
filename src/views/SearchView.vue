@@ -44,7 +44,7 @@ watch(searchText, (newSearchText) => {
 
 <template>
   <div>
-    <div class="mt-5 px-20">
+    <div class="px-20">
       <div class="relative flex items-center">
         <SearchIcon class="absolute left-4 h-6 fill-secondary-400" />
         <input

@@ -52,7 +52,7 @@ const popularSongs = computed(() => {
 </script>
 
 <template>
-  <div class="mt-4 font-Quicksand font-medium">
+  <div class="font-Quicksand font-medium">
     <div class="flex items-center">
       <img
         class="lazyload h-60 w-60 rounded-full bg-primary-500 shadow-2xl"
