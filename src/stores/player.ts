@@ -5,7 +5,6 @@ import type { Song } from "@/models/song.model";
 interface State {
   queue: Song[];
   currentIndex: number;
-  isPaused: boolean;
   isMute: boolean;
   loop: boolean;
   shuffle: boolean;
@@ -34,7 +33,6 @@ export const usePlayerStore = defineStore({
         },
       ],
       currentIndex: 0,
-      isPaused: true,
       isMute: false,
       loop: false,
       shuffle: false,
@@ -49,7 +47,6 @@ export const usePlayerStore = defineStore({
       const localStoragePlayerSettings = localStorage.getItem("playerSettings");
       if (localStoragePlayerSettings) {
         this.$state = JSON.parse(localStoragePlayerSettings);
-        this.isPaused = true;
       } else {
         localStorage.setItem("playerSettings", JSON.stringify(this.$state));
       }
@@ -60,29 +57,24 @@ export const usePlayerStore = defineStore({
     playSong(song: Song) {
       this.queue = [song];
       this.currentIndex = 0;
-      this.isPaused = false;
     },
     playSongs(songs: Song[], index: number) {
       this.queue = songs;
       this.currentIndex = index;
-      this.isPaused = false;
     },
     playAlbum(albumId: string) {
       const songsStore = useSongsStore();
       this.queue = songsStore.getSongsByAlbum(albumId);
       this.currentIndex = 0;
-      this.isPaused = false;
     },
     next() {
       if (this.currentIndex !== this.lastIndex) {
         this.currentIndex++;
-        this.isPaused = false;
       }
     },
     pervious() {
       if (this.currentIndex !== 0) {
         this.currentIndex--;
-        this.isPaused = false;
       }
     },
   },

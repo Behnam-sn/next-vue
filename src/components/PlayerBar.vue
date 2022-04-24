@@ -18,7 +18,13 @@ import { useUserStore } from "@/stores/user";
 const playerStore = usePlayerStore();
 const userStore = useUserStore();
 
-var sound = new Howl({
+const isPaused = ref(true);
+const track = ref(0);
+const isMouseDownOnTrack = ref(false);
+const seekMinutes = ref("00");
+const seekSeconds = ref("00");
+
+let sound = new Howl({
   src: [`/audio/${playerStore.currnetSong.src}`],
   html5: true,
   loop: playerStore.loop,
@@ -26,6 +32,7 @@ var sound = new Howl({
     track.value = 0;
   },
   onplay: function () {
+    isPaused.value = false;
     requestAnimationFrame(step);
   },
   onseek: function () {
@@ -41,11 +48,6 @@ var sound = new Howl({
     }
   },
 });
-
-const seekMinutes = ref("00");
-const seekSeconds = ref("00");
-const track = ref(0);
-const isMouseDownOnTrack = ref(false);
 
 const durationMinutes = computed(() => {
   return zeroPad(playerStore.currnetSong.duration / 60);
@@ -72,9 +74,8 @@ function likeSong() {
 }
 
 function play() {
-  playerStore.isPaused = !playerStore.isPaused;
-
-  if (playerStore.isPaused) {
+  isPaused.value = !isPaused.value;
+  if (isPaused.value) {
     sound.pause();
   } else {
     sound.play();
@@ -83,7 +84,6 @@ function play() {
 
 function mute() {
   playerStore.isMute = !playerStore.isMute;
-
   if (playerStore.isMute) {
     Howler.mute(true);
   } else {
@@ -118,6 +118,7 @@ watch(
         track.value = 0;
       },
       onplay: function () {
+        isPaused.value = false;
         requestAnimationFrame(step);
       },
       onseek: function () {
@@ -137,18 +138,19 @@ watch(
     userStore.addToRecents(newSong);
   }
 );
-watch(
-  () => playerStore.volume,
-  (newVolume) => {
-    Howler.volume(newVolume / 10);
-  }
-);
 
 watch(track, (newTrack) => {
   if (isMouseDownOnTrack.value) {
     sound.seek(newTrack);
   }
 });
+
+watch(
+  () => playerStore.volume,
+  (newVolume) => {
+    Howler.volume(newVolume / 10);
+  }
+);
 
 watch(
   playerStore.$state,
@@ -223,7 +225,7 @@ watch(
           class="mx-1 flex h-12 w-12 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
           @click="play"
         >
-          <PlayIcon v-if="playerStore.isPaused" class="ml-1 w-6" />
+          <PlayIcon v-if="isPaused" class="ml-1 w-6" />
           <PauseIcon v-else class="w-6" />
         </button>
         <button
