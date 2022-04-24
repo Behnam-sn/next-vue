@@ -2,14 +2,18 @@
 import "lazysizes";
 import "swiper/css";
 
-import { RouterView } from "vue-router";
-
 import SideMenu from "@/components/SideMenu.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
 
+import { RouterView } from "vue-router";
 import { useUserStore } from "@/stores/user";
+import { usePlayerStore } from "@/stores/player";
+
 const userStore = useUserStore();
-userStore.fetchLocalStorageData();
+const playerStore = usePlayerStore();
+
+userStore.fetchUserData();
+playerStore.fetchPlayerSettings();
 </script>
 
 <template>

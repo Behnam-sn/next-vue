@@ -44,7 +44,6 @@ var sound = new Howl({
 
 const seekMinutes = ref("00");
 const seekSeconds = ref("00");
-const volume = ref(100);
 const track = ref(0);
 const isMouseDownOnTrack = ref(false);
 
@@ -138,21 +137,31 @@ watch(
     userStore.addToRecents(newSong);
   }
 );
-
-watch(volume, (newVolume) => {
-  Howler.volume(newVolume / 10);
-});
+watch(
+  () => playerStore.volume,
+  (newVolume) => {
+    Howler.volume(newVolume / 10);
+  }
+);
 
 watch(track, (newTrack) => {
   if (isMouseDownOnTrack.value) {
     sound.seek(newTrack);
   }
 });
+
+watch(
+  playerStore.$state,
+  () => {
+    playerStore.updatePlayerSettings();
+  },
+  { deep: true }
+);
 </script>
 
 <template>
   <div
-    class="fixed bottom-4 left-56 right-4 z-20 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100"
+    class="fixed bottom-4 left-4 right-4 z-20 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:left-56"
   >
     <div class="flex w-3/12 items-center">
       <img
@@ -274,12 +283,12 @@ watch(track, (newTrack) => {
       <div class="slide w-28">
         <input
           class="outline-none"
-          v-model="volume"
+          v-model="playerStore.volume"
           type="range"
           min="0"
           max="10"
         />
-        <progress :value="volume" min="0" max="10"></progress>
+        <progress :value="playerStore.volume" min="0" max="10"></progress>
       </div>
     </div>
   </div>

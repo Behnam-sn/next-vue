@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
 import { useSongsStore } from "@/stores/songs";
-import { usePlayerStore } from "@/stores/player";
 
 import type { Song } from "@/models/song.model";
 
@@ -64,12 +63,8 @@ export const useUserStore = defineStore({
         localStorage.setItem("recents", JSON.stringify(recentsId));
       }
     },
-    replaceQueue(songs: Song[]) {
-      localStorage.setItem("queue", JSON.stringify(songs));
-    },
-    fetchLocalStorageData() {
+    fetchUserData() {
       const songsStore = useSongsStore();
-      const playerStore = usePlayerStore();
 
       const localStorageLikedSongs = localStorage.getItem("likedSongs");
       if (localStorageLikedSongs) {
@@ -95,49 +90,6 @@ export const useUserStore = defineStore({
         }
       } else {
         localStorage.setItem("recents", "[]");
-      }
-
-      const localStorageQueue = localStorage.getItem("queue");
-      if (localStorageQueue) {
-        playerStore.queue = JSON.parse(localStorageQueue);
-      } else {
-        playerStore.queue = [
-          {
-            id: "0xkIqujRyf",
-            title: "Take My Breath",
-            artists: [
-              {
-                id: "UoyxnRAsCv",
-                name: "The Weeknd",
-              },
-            ],
-            albumId: "6h6pfhg9Bw",
-            number: 4,
-            duration: 339,
-            thumbnail: "iHzGJrkWxt.png",
-            src: "xpYugmcWiK.mp3",
-          },
-        ];
-        localStorage.setItem(
-          "queue",
-          JSON.stringify([
-            {
-              id: "0xkIqujRyf",
-              title: "Take My Breath",
-              artists: [
-                {
-                  id: "UoyxnRAsCv",
-                  name: "The Weeknd",
-                },
-              ],
-              albumId: "6h6pfhg9Bw",
-              number: 4,
-              duration: 339,
-              thumbnail: "iHzGJrkWxt.png",
-              src: "xpYugmcWiK.mp3",
-            },
-          ])
-        );
       }
     },
   },
