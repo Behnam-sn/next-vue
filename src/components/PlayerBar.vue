@@ -216,17 +216,17 @@ watch(
           <ShuffleIcon class="w-4" />
         </button>
         <button
-          class="mx-1 hidden h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex lg:h-11 lg:w-11"
           @click="playerStore.pervious"
         >
           <BackwardIcon class="w-4" />
         </button>
         <button
-          class="flex h-12 w-12 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
+          class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1 lg:h-12 lg:w-12"
           @click="play"
         >
-          <PlayIcon v-if="isPaused" class="ml-1 w-6" />
-          <PauseIcon v-else class="w-6" />
+          <PlayIcon v-if="isPaused" class="ml-1 w-5 lg:w-6" />
+          <PauseIcon v-else class="w-5 lg:w-6" />
         </button>
         <button
           class="flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
@@ -273,11 +273,11 @@ watch(
 
     <div class="flex items-center justify-end lg:w-3/12">
       <button
-        class="mr-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+        class="mr-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:h-14 lg:w-14"
         :class="{ 'fill-red-500': isLiked }"
         @click="likeSong"
       >
-        <HeartIcon class="w-7" />
+        <HeartIcon class="w-6 lg:w-7" />
       </button>
       <button
         class="mr-1 hidden h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"

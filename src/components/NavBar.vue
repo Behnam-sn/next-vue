@@ -4,7 +4,7 @@ import BarsIcon from "@/assets/icons/BarsIcon.vue";
 
 <template>
   <div
-    class="fixed top-0 z-10 w-full bg-tertiary-900 py-6 px-7 text-secondary-900 transition duration-500 lg:hidden"
+    class="fixed top-0 z-10 w-full bg-tertiary-900 py-4 px-7 text-secondary-900 transition duration-500 lg:hidden"
   >
     <div class="flex flex-row items-center justify-between">
       <router-link to="/">
