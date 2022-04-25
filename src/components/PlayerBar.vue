@@ -163,23 +163,23 @@ watch(
 
 <template>
   <div
-    class="fixed bottom-4 left-4 right-4 z-20 flex items-center justify-between rounded-xl bg-secondary-900/10 fill-secondary-900 px-6 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:left-56"
+    class="fixed bottom-4 left-2 right-2 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
   >
-    <div class="flex w-3/12 items-center">
+    <div class="flex grow items-center lg:w-3/12 lg:grow-0">
       <img
         class="h-16 w-16 rounded-xl bg-primary-500"
         :src="`/img/${playerStore.currnetSong.thumbnail}`"
         :alt="playerStore.currnetSong.title"
       />
 
-      <div class="ml-6 overflow-hidden">
+      <div class="ml-3 overflow-hidden lg:ml-6">
         <router-link
-          class="text-lg font-medium"
+          class="font-medium lg:text-lg"
           :to="'/album/' + playerStore.currnetSong.albumId"
         >
           {{ playerStore.currnetSong.title }}
         </router-link>
-        <div class="flex text-sm font-light text-neutral-300">
+        <div class="flex text-xs font-light text-neutral-300 lg:text-sm">
           <template
             v-for="(artist, index) in playerStore.currnetSong.artists"
             :key="index"
@@ -204,10 +204,10 @@ watch(
       </div>
     </div>
 
-    <div class="w-6/12">
+    <div class="lg:w-6/12">
       <div class="mb-1 flex items-center justify-center">
         <button
-          class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
           :class="{
             'fill-secondary-900/30 hover:fill-secondary-900/60':
               !playerStore.shuffle,
@@ -216,26 +216,26 @@ watch(
           <ShuffleIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          class="mx-1 hidden h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
           @click="playerStore.pervious"
         >
           <BackwardIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-12 w-12 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          class="flex h-12 w-12 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
           @click="play"
         >
           <PlayIcon v-if="isPaused" class="ml-1 w-6" />
           <PauseIcon v-else class="w-6" />
         </button>
         <button
-          class="mx-1 flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          class="flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
           @click="playerStore.next"
         >
           <ForwardIcon class="w-4" />
         </button>
         <button
-          class="mx-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
           :class="{
             'fill-secondary-900/30 hover:fill-secondary-900/60':
               !playerStore.loop,
@@ -246,7 +246,9 @@ watch(
         </button>
       </div>
       <div class="flex items-center justify-center">
-        <div class="w-10">{{ `${seekMinutes}:${seekSeconds}` }}</div>
+        <div class="hidden w-10 lg:block">
+          {{ `${seekMinutes}:${seekSeconds}` }}
+        </div>
         <div class="slide mx-4 w-[30rem]">
           <input
             class="outline-none"
@@ -263,20 +265,22 @@ watch(
             :max="playerStore.currnetSong.duration"
           ></progress>
         </div>
-        <div class="w-10">{{ `${durationMinutes}:${durationSeconds}` }}</div>
+        <div class="hidden w-10 lg:block">
+          {{ `${durationMinutes}:${durationSeconds}` }}
+        </div>
       </div>
     </div>
 
-    <div class="flex w-3/12 items-center justify-end">
+    <div class="flex items-center justify-end lg:w-3/12">
       <button
-        class="mx-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+        class="mr-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
         :class="{ 'fill-red-500': isLiked }"
         @click="likeSong"
       >
         <HeartIcon class="w-7" />
       </button>
       <button
-        class="mx-1 flex h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10"
+        class="mr-1 hidden h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
         @click="mute"
       >
         <MuteIcon v-if="playerStore.isMute" class="w-7" />

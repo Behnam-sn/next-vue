@@ -13,12 +13,12 @@ defineProps<{
 
 <template>
   <div
-    class="group relative mr-5 mb-5 h-72 w-48 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:w-56"
+    class="group relative mr-5 mb-5 h-56 w-36 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:h-72 lg:w-56"
   >
     <router-link :to="'/album/' + song.albumId">
-      <div class="p-6">
+      <div class="p-4 lg:p-6">
         <img
-          class="lazyload h-44 w-44 rounded-xl bg-primary-500"
+          class="lazyload h-28 w-28 rounded-xl bg-primary-500 lg:h-44 lg:w-44"
           :data-src="`/img/${song.thumbnail}`"
           :alt="song.title"
         />
