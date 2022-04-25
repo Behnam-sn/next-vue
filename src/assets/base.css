@@ -61,7 +61,7 @@ nav .router-link-active {
 }
 
 .slide {
-  @apply relative flex items-center;
+  @apply relative hidden items-center lg:flex;
 }
 .slide input {
   @apply absolute z-30 w-full cursor-pointer appearance-none bg-transparent;
