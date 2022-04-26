@@ -57,17 +57,63 @@ function computeDuration(duration: number) {
 
 <template>
   <div class="font-Quicksand font-medium">
-    <div class="mx-2 flex flex-col lg:mx-4 lg:flex-row lg:items-center">
+    <div class="mx-2 lg:hidden">
+      <div class="mb-5 flex">
+        <img
+          class="lazyload h-36 w-36 rounded-xl bg-primary-500 shadow-2xl"
+          :data-src="`/img/${album?.thumbnail}`"
+          :alt="album?.title"
+        />
+
+        <div class="ml-3 mt-5">
+          <div class="mb-3 text-3xl font-bold">
+            {{ album?.title }}
+          </div>
+
+          <div class="flex items-center text-sm">
+            <div>{{ album?.type }}</div>
+
+            <template v-if="album?.type !== 'Single'">
+              <div class="mx-3 h-1.5 w-1.5 rounded-full bg-white"></div>
+              <div>{{ album?.tracksCount }} Songs</div>
+            </template>
+
+            <div class="flex items-center">
+              <div class="mx-3 h-1.5 w-1.5 rounded-full bg-white"></div>
+              <div>{{ album?.year }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div v-for="(artist, index) in artists" :key="index">
+          <router-link
+            :to="'/artist/' + artist.id"
+            class="mr-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition duration-300 hover:bg-primary-700"
+          >
+            <img
+              class="lazyload w-9 rounded-full"
+              :data-src="`/img/${artist.thumbnail}`"
+              :alt="artist.name"
+            />
+            <div class="ml-2 font-normal">
+              {{ artist.name }}
+            </div>
+          </router-link>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-4 hidden flex-row items-center lg:flex">
       <img
-        class="lazyload mx-auto h-52 w-52 rounded-xl bg-primary-500 shadow-2xl lg:h-60 lg:w-60"
+        class="lazyload h-60 w-60 rounded-xl bg-primary-500 shadow-2xl"
         :data-src="`/img/${album?.thumbnail}`"
         :alt="album?.title"
       />
-      <div class="grow lg:pl-8 lg:pr-4">
-        <div
-          class="my-4 flex flex-col justify-between lg:mt-0 lg:mb-8 lg:flex-row lg:items-center"
-        >
-          <div class="mb-2 text-3xl font-bold lg:mb-0">
+      <div class="grow pl-8 pr-4">
+        <div class="mb-8 flex flex-row items-center justify-between">
+          <div class="text-3xl font-bold">
             {{ album?.title }}
           </div>
 
@@ -78,11 +124,6 @@ function computeDuration(duration: number) {
               <div class="mx-3 h-1.5 w-1.5 rounded-full bg-white"></div>
               <div>{{ album?.tracksCount }} Songs</div>
             </template>
-
-            <div class="flex items-center lg:hidden">
-              <div class="mx-3 h-1.5 w-1.5 rounded-full bg-white"></div>
-              <div>{{ album?.year }}</div>
-            </div>
           </div>
         </div>
 
@@ -104,7 +145,8 @@ function computeDuration(duration: number) {
               </router-link>
             </div>
           </div>
-          <div class="hidden font-semibold lg:block">
+
+          <div class="font-semibold">
             {{ album?.year }}
           </div>
         </div>

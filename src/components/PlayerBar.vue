@@ -163,7 +163,7 @@ watch(
 
 <template>
   <div
-    class="fixed bottom-2 left-2 right-2 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:bottom-4 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
+    class="fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
   >
     <div class="flex grow items-center lg:w-3/12 lg:grow-0">
       <img
@@ -172,7 +172,7 @@ watch(
         :alt="playerStore.currnetSong.title"
       />
 
-      <div class="ml-3 overflow-hidden lg:ml-6">
+      <div class="ml-3 overflow-hidden text-ellipsis whitespace-nowrap lg:ml-6">
         <router-link
           class="font-medium lg:text-lg"
           :to="'/album/' + playerStore.currnetSong.albumId"
@@ -273,7 +273,7 @@ watch(
 
     <div class="flex items-center justify-end lg:w-3/12">
       <button
-        class="mr-1 flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:h-14 lg:w-14"
+        class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mr-1 lg:h-14 lg:w-14"
         :class="{ 'fill-red-500': isLiked }"
         @click="likeSong"
       >

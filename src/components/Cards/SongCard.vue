@@ -13,17 +13,17 @@ defineProps<{
 
 <template>
   <div
-    class="group relative mr-3 mb-5 h-56 w-36 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:mr-5 lg:h-72 lg:w-56"
+    class="group relative mr-3 mb-3 h-56 w-40 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:mb-5 lg:mr-5 lg:h-72 lg:w-56"
   >
     <router-link :to="'/album/' + song.albumId">
       <div class="p-4 lg:p-6">
         <img
-          class="lazyload h-28 w-28 rounded-xl bg-primary-500 lg:h-44 lg:w-44"
+          class="lazyload h-32 w-32 rounded-xl bg-primary-500 lg:h-44 lg:w-44"
           :data-src="`/img/${song.thumbnail}`"
           :alt="song.title"
         />
         <div
-          class="mt-3 font-Quicksand text-sm font-medium text-secondary-900 lg:text-base"
+          class="mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-sm font-medium text-secondary-900 lg:text-base"
         >
           {{ song.title }}
         </div>
