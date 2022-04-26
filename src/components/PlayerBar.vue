@@ -163,7 +163,7 @@ watch(
 
 <template>
   <div
-    class="fixed bottom-4 left-2 right-2 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
+    class="fixed bottom-2 left-2 right-2 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:bottom-4 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
   >
     <div class="flex grow items-center lg:w-3/12 lg:grow-0">
       <img
