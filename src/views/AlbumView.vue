@@ -43,6 +43,16 @@ const artists = computed(() => {
 const songs = computed(() => {
   return songsStore.getSongsByAlbum(id.value);
 });
+
+function zeroPad(input: number) {
+  return ("0" + Math.round(input)).slice(-2);
+}
+
+function computeDuration(duration: number) {
+  let minutes = zeroPad(duration / 60);
+  let seconds = zeroPad(duration % 60);
+  return `${minutes}:${seconds}`;
+}
 </script>
 
 <template>
@@ -131,7 +141,7 @@ const songs = computed(() => {
             </template>
           </div>
         </div>
-        <div>{{ song.duration }}</div>
+        <div>{{ computeDuration(song.duration) }}</div>
         <PlayButton @click="playerStore.playSongs(songs, index)" />
       </div>
     </div>
