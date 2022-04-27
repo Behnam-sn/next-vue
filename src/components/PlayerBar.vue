@@ -101,7 +101,6 @@ function step() {
     track.value = Math.round(sound.seek());
     seekMinutes.value = zeroPad(track.value / 60);
     seekSeconds.value = zeroPad(track.value % 60);
-    console.log(`${track.value} = ${seekMinutes.value} : ${seekSeconds.value}`);
     requestAnimationFrame(step);
   }
 }
