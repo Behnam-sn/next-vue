@@ -82,9 +82,9 @@ const popularSongs = computed(() => {
           class="flex grow items-center"
           :to="'/album/' + song.albumId"
         >
-          <div class="ml-8 w-4 text-lg">{{ index + 1 }}</div>
+          <div class="ml-4 w-4 text-lg lg:ml-8">{{ index + 1 }}</div>
           <img
-            class="lazyload mx-7 h-16 w-16"
+            class="lazyload mx-4 h-16 w-16 lg:mx-7"
             :data-src="`/img/${song.thumbnail}`"
             :alt="song.title"
           />

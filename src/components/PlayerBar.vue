@@ -205,7 +205,7 @@ watch(
     </div>
 
     <div class="lg:w-6/12">
-      <div class="mb-1 flex items-center justify-center">
+      <div class="flex items-center justify-center lg:mb-1">
         <button
           class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
           :class="{
@@ -225,14 +225,14 @@ watch(
           class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1 lg:h-12 lg:w-12"
           @click="play"
         >
-          <PlayIcon v-if="isPaused" class="ml-1 w-5 lg:w-6" />
-          <PauseIcon v-else class="w-5 lg:w-6" />
+          <PlayIcon v-if="isPaused" class="ml-1 w-4 lg:w-6" />
+          <PauseIcon v-else class="w-4 lg:w-6" />
         </button>
         <button
-          class="flex h-11 w-11 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
+          class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
           @click="playerStore.next"
         >
-          <ForwardIcon class="w-4" />
+          <ForwardIcon class="w-3 lg:w-4" />
         </button>
         <button
           class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"

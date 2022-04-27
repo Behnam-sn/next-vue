@@ -65,8 +65,8 @@ function computeDuration(duration: number) {
           :alt="album?.title"
         />
 
-        <div class="ml-3 mt-5">
-          <div class="mb-3 text-3xl font-bold">
+        <div class="ml-5 mt-5">
+          <div class="mb-4 text-3xl font-bold">
             {{ album?.title }}
           </div>
 
@@ -153,7 +153,7 @@ function computeDuration(duration: number) {
       </div>
     </div>
 
-    <div class="my-8 h-1 rounded-full bg-primary-500"></div>
+    <div class="my-6 h-1 rounded-full bg-primary-500 lg:my-8"></div>
 
     <div>
       <div
@@ -162,7 +162,7 @@ function computeDuration(duration: number) {
         :key="song.number"
       >
         <div class="ml-4 w-6 text-lg">{{ song.number }}</div>
-        <div class="ml-8 grow">
+        <div class="ml-4 grow lg:ml-8">
           <div>{{ song.title }}</div>
           <div class="flex text-sm text-neutral-400">
             <template v-for="(artist, index) in song.artists" :key="index">
