@@ -28,29 +28,37 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
     </div> -->
 
     <SideMenuTitle text="menu" />
+
     <SideMenuItem text="home" address="/">
       <HomeIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="search" address="/search">
       <SearchIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="songs" address="/songs">
       <MusicIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="artists" address="/artists">
       <MicrophoneIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="albums" address="/albums">
       <DiscIcon class="h-6" />
     </SideMenuItem>
 
     <SideMenuTitle text="library" />
+
     <SideMenuItem text="recents" address="/recents">
       <HistoryIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="liked songs" address="/likedSongs">
       <HeartIcon class="h-6" />
     </SideMenuItem>
+
     <SideMenuItem text="playlists" address="/playlists">
       <ListIcon class="h-6" />
     </SideMenuItem>
