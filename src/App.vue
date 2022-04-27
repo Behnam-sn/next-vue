@@ -21,7 +21,7 @@ playerStore.fetchPlayerSettings();
   <NavBar />
   <SideMenu />
   <PlayerBar />
-  <div class="mt-24 px-3 pb-52 lg:ml-52 lg:mt-5 lg:px-8">
+  <div class="mt-20 px-3 pb-52 lg:ml-52 lg:mt-5 lg:px-8">
     <RouterView />
   </div>
 </template>

@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="my-4 font-Quicksand text-3xl font-bold capitalize">
+  <div class="my-4 font-Quicksand text-2xl font-bold capitalize lg:text-3xl">
     {{ text }}
   </div>
 </template>

@@ -16,7 +16,9 @@ defineProps<{
         :data-src="`/img/${artist.thumbnail}`"
         :alt="artist.name"
       />
-      <div class="mt-3 text-center font-Quicksand font-medium">
+      <div
+        class="mt-3 text-center font-Quicksand text-sm font-medium text-secondary-900 lg:text-base"
+      >
         {{ artist.name }}
       </div>
     </div>
