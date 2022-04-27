@@ -45,7 +45,7 @@ const songs = computed(() => {
 });
 
 function zeroPad(input: number) {
-  return ("0" + Math.round(input)).slice(-2);
+  return ("0" + Math.floor(input)).slice(-2);
 }
 
 function computeDuration(duration: number) {

@@ -62,7 +62,7 @@ const isLiked = computed(() => {
 });
 
 function zeroPad(input: number) {
-  return ("0" + Math.round(input)).slice(-2);
+  return ("0" + Math.floor(input)).slice(-2);
 }
 
 function likeSong() {
@@ -101,6 +101,7 @@ function step() {
     track.value = Math.round(sound.seek());
     seekMinutes.value = zeroPad(track.value / 60);
     seekSeconds.value = zeroPad(track.value % 60);
+    console.log(`${track.value} = ${seekMinutes.value} : ${seekSeconds.value}`);
     requestAnimationFrame(step);
   }
 }
