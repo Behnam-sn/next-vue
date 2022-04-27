@@ -82,7 +82,7 @@ const popularSongs = computed(() => {
           class="flex grow items-center"
           :to="'/album/' + song.albumId"
         >
-          <div class="ml-8 w-4 text-lg">{{ index + 1 }}</div>
+          <div class="ml-6 w-4 text-lg lg:ml-8">{{ index + 1 }}</div>
           <img
             class="lazyload mx-6 h-14 w-14 lg:mx-7 lg:h-16 lg:w-16"
             :data-src="`/img/${song.thumbnail}`"
@@ -91,7 +91,7 @@ const popularSongs = computed(() => {
           <div class="lg:text-lg">{{ song.title }}</div>
         </router-link>
         <PlayButton
-          class="left-3"
+          class="left-2"
           @click="playerStore.playSongs(popularSongs, index)"
         />
       </div>

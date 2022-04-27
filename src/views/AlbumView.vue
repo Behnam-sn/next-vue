@@ -163,8 +163,8 @@ function computeDuration(duration: number) {
       >
         <div class="ml-2 w-6 text-lg lg:ml-4">{{ song.number }}</div>
         <div class="ml-4 grow lg:ml-8">
-          <div>{{ song.title }}</div>
-          <div class="flex text-sm text-neutral-400">
+          <div class="mb-2 text-sm lg:text-base">{{ song.title }}</div>
+          <div class="flex text-xs text-neutral-400 lg:text-sm">
             <template v-for="(artist, index) in song.artists" :key="index">
               <router-link
                 :to="'/artist/' + artist.id"
@@ -183,7 +183,9 @@ function computeDuration(duration: number) {
             </template>
           </div>
         </div>
-        <div>{{ computeDuration(song.duration) }}</div>
+        <div class="text-sm lg:text-base">
+          {{ computeDuration(song.duration) }}
+        </div>
         <PlayButton
           class="left-2 lg:left-4"
           @click="playerStore.playSongs(songs, index)"
