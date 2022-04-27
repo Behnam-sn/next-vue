@@ -81,10 +81,6 @@ nav .router-link-active {
   @apply bg-secondary-900;
 }
 
-input,
-textarea,
-button,
-select,
-a {
+* {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

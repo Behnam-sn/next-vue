@@ -277,7 +277,7 @@ watch(
         :class="{ 'fill-red-500': isLiked }"
         @click="likeSong"
       >
-        <HeartIcon class="w-6 lg:w-7" />
+        <HeartIcon class="w-5 lg:w-7" />
       </button>
       <button
         class="mr-1 hidden h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"

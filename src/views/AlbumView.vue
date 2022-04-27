@@ -70,7 +70,7 @@ function computeDuration(duration: number) {
             {{ album?.title }}
           </div>
 
-          <div class="flex items-center text-sm">
+          <div class="flex items-center text-xs">
             <div>{{ album?.type }}</div>
 
             <template v-if="album?.type !== 'Single'">

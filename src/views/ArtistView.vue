@@ -74,7 +74,7 @@ const popularSongs = computed(() => {
     <template v-if="popularSongs.length">
       <TitleBar text="Popular" />
       <div
-        class="group relative mb-2 flex items-center rounded-lg py-3 transition duration-300 hover:bg-primary-800 lg:mx-4"
+        class="group relative mb-2 flex items-center rounded-lg py-2 transition duration-300 hover:bg-primary-800 lg:mx-4 lg:py-3"
         v-for="(song, index) in popularSongs"
         :key="song.id"
       >
@@ -84,7 +84,7 @@ const popularSongs = computed(() => {
         >
           <div class="ml-4 w-4 text-lg lg:ml-8">{{ index + 1 }}</div>
           <img
-            class="lazyload mx-4 h-16 w-16 lg:mx-7"
+            class="lazyload mx-4 h-14 w-14 lg:mx-7 lg:h-16 lg:w-16"
             :data-src="`/img/${song.thumbnail}`"
             :alt="song.title"
           />
