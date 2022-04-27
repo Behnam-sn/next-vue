@@ -11,7 +11,7 @@ import BarsIcon from "@/assets/icons/BarsIcon.vue";
         <h1 class="font-Ubuntu text-3xl font-normal">Next</h1>
       </router-link>
       <div class="fill-secondary-900">
-        <BarsIcon class="w-7" />
+        <BarsIcon class="w-6" />
       </div>
     </div>
   </div>

@@ -46,6 +46,9 @@ defineProps<{
         </div>
       </div>
     </router-link>
-    <PlayButton class="bottom-24 right-8" @click="playerStore.playSong(song)" />
+    <PlayButton
+      class="bottom-[5.5rem] right-6 lg:bottom-24 lg:right-8"
+      @click="playerStore.playSong(song)"
+    />
   </div>
 </template>
