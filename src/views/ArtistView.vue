@@ -74,7 +74,7 @@ const popularSongs = computed(() => {
     <template v-if="popularSongs.length">
       <TitleBar text="Popular" />
       <div
-        class="group relative mb-2 flex items-center rounded-lg py-2 transition duration-300 hover:bg-primary-800 lg:mx-4 lg:py-3"
+        class="group relative mb-2 flex items-center rounded-lg py-2 transition duration-300 hover:bg-primary-800 lg:py-3"
         v-for="(song, index) in popularSongs"
         :key="song.id"
       >
@@ -91,7 +91,7 @@ const popularSongs = computed(() => {
           <div class="lg:text-lg">{{ song.title }}</div>
         </router-link>
         <PlayButton
-          class="left-2"
+          class="left-2 lg:left-3"
           @click="playerStore.playSongs(popularSongs, index)"
         />
       </div>
