@@ -17,7 +17,7 @@ const show = ref(true);
 </script>
 
 <template>
-  <div class="fixed top-0 z-20 w-full lg:hidden">
+  <nav class="fixed top-0 z-20 w-full lg:hidden">
     <div
       class="flex flex-row items-center justify-between bg-tertiary-900 py-4 px-3 text-secondary-900"
     >
@@ -29,8 +29,8 @@ const show = ref(true);
       </button>
     </div>
     <Transition name="bounce">
-      <nav
-        class="grid origin-top grid-cols-4 gap-2 overflow-hidden bg-tertiary-900 p-3 transition-transform"
+      <div
+        class="navigation grid origin-top grid-cols-4 gap-2 overflow-hidden bg-tertiary-900 p-3 transition-transform"
         v-if="show"
       >
         <NavBarItem text="home" address="/">
@@ -64,9 +64,9 @@ const show = ref(true);
         <NavBarItem text="playlists" address="/playlists">
           <ListIcon class="h-5" />
         </NavBarItem>
-      </nav>
+      </div>
     </Transition>
-  </div>
+  </nav>
 </template>
 
 <style>
