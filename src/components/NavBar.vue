@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+
 import NavBarItem from "@/components/NavBar/NavBarItem.vue";
 
 import BarsIcon from "@/assets/icons/BarsIcon.vue";
@@ -11,17 +14,31 @@ import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import HistoryIcon from "@/assets/icons/HistoryIcon.vue";
 import ListIcon from "@/assets/icons/ListIcon.vue";
 
+const route = useRoute();
+const isCollapsed = ref(true);
+
 function collapse() {
   var content = document.querySelector(".collapsible") as HTMLElement;
 
   if (content) {
     if (content.style.maxHeight) {
       content.style.removeProperty("max-height");
+      isCollapsed.value = true;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
+      isCollapsed.value = false;
     }
   }
 }
+
+watch(
+  () => route.path,
+  () => {
+    if (!isCollapsed.value) {
+      collapse();
+    }
+  }
+);
 </script>
 
 <template>
