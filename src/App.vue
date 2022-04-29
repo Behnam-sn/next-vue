@@ -22,11 +22,25 @@ playerStore.fetchPlayerSettings();
   <SideMenu />
   <PlayerBar />
   <div class="mt-20 px-3 pb-52 lg:ml-52 lg:mt-5 lg:px-8">
-    <RouterView />
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <style>
 @import "@/assets/base.css";
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Roboto:wght@400;700&family=Ubuntu&display=swap");
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
