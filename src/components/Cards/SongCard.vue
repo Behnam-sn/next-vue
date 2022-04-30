@@ -20,9 +20,7 @@ defineProps<{
           :data-src="`/img/${song.thumbnail}`"
           :alt="song.title"
         />
-        <div
-          class="mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-sm font-medium text-secondary-900 lg:text-base"
-        >
+        <div class="card-title">
           {{ song.title }}
         </div>
         <div
