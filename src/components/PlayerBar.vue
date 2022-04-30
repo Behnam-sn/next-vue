@@ -280,8 +280,10 @@ watch(
 
     <div class="flex items-center justify-end lg:w-3/12">
       <button
-        class="flex h-10 w-10 items-center justify-center rounded-full fill-secondary-900 outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:fill-primary-900 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:mr-1 lg:h-14 lg:w-14"
-        :class="{ 'fill-red-500': isLiked }"
+        class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:mr-1 lg:h-14 lg:w-14"
+        :class="[
+          isLiked ? 'fill-red-500' : 'fill-secondary-900 dark:fill-primary-900',
+        ]"
         @click="likeSong"
       >
         <HeartIcon class="w-5 lg:w-7" />
