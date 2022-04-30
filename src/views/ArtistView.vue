@@ -52,7 +52,7 @@ const popularSongs = computed(() => {
 </script>
 
 <template>
-  <div class="font-Quicksand font-medium">
+  <div>
     <div class="flex flex-col items-center lg:flex-row">
       <img
         class="lazyload mx-auto h-52 w-52 rounded-full bg-primary-500 shadow-2xl lg:mx-0 lg:h-60 lg:w-60"
@@ -62,10 +62,14 @@ const popularSongs = computed(() => {
       <div
         class="mt-4 flex flex-col items-center lg:mt-0 lg:items-start lg:pl-12"
       >
-        <div class="mb-4 text-4xl font-bold lg:text-6xl">
+        <div
+          class="mb-4 font-Quicksand text-4xl font-bold text-secondary-900 transition-colors duration-300 dark:text-primary-900 lg:text-6xl"
+        >
           {{ artist?.name }}
         </div>
-        <div class="text-sm font-semibold text-neutral-400 lg:text-base">
+        <div
+          class="font-Quicksand text-sm font-semibold text-neutral-400 lg:text-base"
+        >
           {{ artist?.monthlyListeners }} Monthy Listeners
         </div>
       </div>
@@ -73,8 +77,9 @@ const popularSongs = computed(() => {
 
     <template v-if="popularSongs.length">
       <TitleBar text="Popular" />
+
       <div
-        class="group relative mb-2 flex items-center rounded-lg py-2 transition duration-300 hover:bg-primary-800 lg:py-3"
+        class="group relative mb-2 flex items-center rounded-lg py-2 font-Quicksand font-medium text-secondary-900 transition-colors duration-300 hover:bg-primary-800 dark:text-primary-900 dark:hover:bg-secondary-800 lg:py-3"
         v-for="(song, index) in popularSongs"
         :key="song.id"
       >
@@ -83,13 +88,18 @@ const popularSongs = computed(() => {
           :to="'/album/' + song.albumId"
         >
           <div class="ml-6 w-4 text-lg lg:ml-8">{{ index + 1 }}</div>
+
           <img
             class="lazyload mx-6 h-14 w-14 lg:mx-7 lg:h-16 lg:w-16"
             :data-src="`/img/${song.thumbnail}`"
             :alt="song.title"
           />
-          <div class="lg:text-lg">{{ song.title }}</div>
+
+          <div class="lg:text-lg">
+            {{ song.title }}
+          </div>
         </router-link>
+
         <PlayButton
           class="left-2 lg:left-3"
           @click="playerStore.playSongs(popularSongs, index)"

@@ -163,7 +163,7 @@ watch(
 
 <template>
   <div
-    class="fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl bg-secondary-900/10 fill-secondary-900 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
+    class="fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl bg-secondary-900/20 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 transition-colors duration-300 dark:bg-primary-900/10 dark:text-primary-900 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
   >
     <div class="flex grow items-center lg:w-3/12 lg:grow-0">
       <img
@@ -207,44 +207,51 @@ watch(
     <div class="lg:w-6/12">
       <div class="flex items-center justify-center lg:mb-1">
         <button
-          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
-          :class="{
-            'fill-secondary-900/30 hover:fill-secondary-900/60':
-              !playerStore.shuffle,
-          }"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 focus:bg-secondary-900/10 dark:focus:bg-primary-900/10 lg:flex"
+          :class="[
+            playerStore.shuffle
+              ? 'fill-secondary-900 hover:bg-secondary-900/10  dark:fill-primary-900 dark:hover:bg-primary-900/10 '
+              : 'fill-secondary-900/30 hover:fill-secondary-900/60 dark:fill-primary-900/30 dark:hover:fill-primary-900/60',
+          ]"
         >
           <ShuffleIcon class="w-4" />
         </button>
+
         <button
-          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex lg:h-11 lg:w-11"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full fill-secondary-900 outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:fill-primary-900 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:flex lg:h-11 lg:w-11"
           @click="playerStore.pervious"
         >
           <BackwardIcon class="w-4" />
         </button>
+
         <button
-          class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1 lg:h-12 lg:w-12"
+          class="flex h-10 w-10 items-center justify-center rounded-full fill-secondary-900 outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:fill-primary-900 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:mx-1 lg:h-12 lg:w-12"
           @click="play"
         >
           <PlayIcon v-if="isPaused" class="ml-1 w-4 lg:w-6" />
           <PauseIcon v-else class="w-4 lg:w-6" />
         </button>
+
         <button
-          class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mx-1"
+          class="flex h-10 w-10 items-center justify-center rounded-full fill-secondary-900 outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:fill-primary-900 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:mx-1"
           @click="playerStore.next"
         >
           <ForwardIcon class="w-3 lg:w-4" />
         </button>
+
         <button
-          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
-          :class="{
-            'fill-secondary-900/30 hover:fill-secondary-900/60':
-              !playerStore.loop,
-          }"
+          class="mx-1 hidden h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 focus:bg-secondary-900/10 dark:focus:bg-primary-900/10 lg:flex"
+          :class="[
+            playerStore.loop
+              ? 'fill-secondary-900 hover:bg-secondary-900/10  dark:fill-primary-900 dark:hover:bg-primary-900/10 '
+              : 'fill-secondary-900/30 hover:fill-secondary-900/60 dark:fill-primary-900/30 dark:hover:fill-primary-900/60',
+          ]"
           @click="loop"
         >
           <RepeatIcon class="w-4" />
         </button>
       </div>
+
       <div class="flex items-center justify-center">
         <div class="hidden w-10 lg:block">
           {{ `${seekMinutes}:${seekSeconds}` }}
@@ -273,19 +280,21 @@ watch(
 
     <div class="flex items-center justify-end lg:w-3/12">
       <button
-        class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:mr-1 lg:h-14 lg:w-14"
+        class="flex h-10 w-10 items-center justify-center rounded-full outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:mr-1 lg:h-14 lg:w-14"
         :class="{ 'fill-red-500': isLiked }"
         @click="likeSong"
       >
         <HeartIcon class="w-5 lg:w-7" />
       </button>
+
       <button
-        class="mr-1 hidden h-14 w-14 items-center justify-center rounded-full outline-none transition duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 lg:flex"
+        class="mr-1 hidden h-14 w-14 items-center justify-center rounded-full fill-secondary-900 outline-none transition-colors duration-300 hover:bg-secondary-900/10 focus:bg-secondary-900/10 dark:fill-primary-900 dark:hover:bg-primary-900/10 dark:focus:bg-primary-900/10 lg:flex"
         @click="mute"
       >
         <MuteIcon v-if="playerStore.isMute" class="w-7" />
         <VolumeIcon v-else class="w-7" />
       </button>
+
       <div class="slide w-28">
         <input
           class="outline-none"
