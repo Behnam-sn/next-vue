@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
 
 import NavBarItem from "@/components/NavBar/NavBarItem.vue";
 
@@ -13,6 +12,12 @@ import SearchIcon from "@/assets/icons/SearchIcon.vue";
 import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import HistoryIcon from "@/assets/icons/HistoryIcon.vue";
 import ListIcon from "@/assets/icons/ListIcon.vue";
+import SunIcon from "@/assets/icons/SunIcon.vue";
+import MoonIcon from "@/assets/icons/MoonIcon.vue";
+
+import { useRoute } from "vue-router";
+import { useUserStore } from "@/stores/user";
+const userStore = useUserStore();
 
 const route = useRoute();
 const isCollapsed = ref(true);
@@ -43,15 +48,21 @@ watch(
 
 <template>
   <nav class="fixed top-0 z-20 w-full bg-tertiary-900 lg:hidden">
-    <div class="flex flex-row items-center justify-between py-4 px-3">
-      <router-link to="/">
-        <h1 class="font-Ubuntu text-3xl font-normal text-secondary-900">
-          Next
-        </h1>
+    <div class="flex flex-row items-center py-4 px-3">
+      <router-link to="/" class="grow">
+        <h1 class="font-Ubuntu text-3xl font-normal text-primary-900">Next</h1>
       </router-link>
 
+      <button
+        class="mr-4 flex h-11 w-11 items-center justify-center rounded-md bg-secondary-900 fill-primary-900 transition-colors duration-300 dark:bg-primary-900 dark:fill-secondary-900"
+        @click="userStore.changeTheme"
+      >
+        <SunIcon class="h-7" v-if="userStore.theme === 'light'" />
+        <MoonIcon class="h-7" v-else />
+      </button>
+
       <button @click="collapse">
-        <BarsIcon class="w-6 fill-secondary-900" />
+        <BarsIcon class="mr-1 h-8 fill-primary-900" />
       </button>
     </div>
     <div
