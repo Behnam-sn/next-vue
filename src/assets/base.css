@@ -22,7 +22,7 @@
 }
 
 body {
-  @apply bg-primary-900 text-white;
+  @apply bg-primary-900 transition-colors duration-300 dark:bg-secondary-900;
 }
 
 .swiper-slide {
@@ -55,6 +55,10 @@ body {
 
 .slide progress::-webkit-progress-value {
   @apply bg-secondary-900;
+}
+
+.card {
+  @apply mr-3 mb-3 h-52 w-36 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 dark:bg-secondary-800  lg:mb-5 lg:mr-5 lg:h-72 lg:w-56;
 }
 
 #nprogress {

@@ -12,9 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <div
-    class="group relative mr-3 mb-3 h-52 w-36 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 lg:mb-5 lg:mr-5 lg:h-72 lg:w-56"
-  >
+  <div class="card group relative">
     <router-link :to="'/album/' + song.albumId">
       <div class="p-4 lg:p-6">
         <img
