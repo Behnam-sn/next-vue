@@ -25,11 +25,12 @@ playerStore.fetchPlayerSettings();
   <SideMenu />
   <PlayerBar />
   <div class="mt-20 px-3 pb-52 lg:ml-52 lg:mt-20 lg:px-8">
-    <router-view v-slot="{ Component }">
+    <!-- <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
-    </router-view>
+    </router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
