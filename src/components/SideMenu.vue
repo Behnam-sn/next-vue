@@ -10,7 +10,6 @@ import SearchIcon from "@/assets/icons/SearchIcon.vue";
 import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import HistoryIcon from "@/assets/icons/HistoryIcon.vue";
 import ListIcon from "@/assets/icons/ListIcon.vue";
-
 import SunIcon from "@/assets/icons/SunIcon.vue";
 import MoonIcon from "@/assets/icons/MoonIcon.vue";
 
