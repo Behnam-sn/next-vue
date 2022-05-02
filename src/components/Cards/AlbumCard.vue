@@ -16,7 +16,7 @@ defineProps<{
     <router-link :to="'/album/' + album.id">
       <div class="p-4 lg:p-6">
         <img
-          class="lazyload h-28 w-28 rounded-xl bg-primary-500 lg:h-44 lg:w-44"
+          class="lazyload h-28 w-28 rounded-xl lg:h-44 lg:w-44"
           :data-src="`/img/${album.thumbnail}`"
           :alt="album.title"
         />

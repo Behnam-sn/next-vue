@@ -25,6 +25,10 @@ body {
   @apply bg-primary-900 transition-colors duration-300 dark:bg-secondary-900;
 }
 
+img {
+  @apply bg-primary-500 transition-colors duration-300 dark:bg-secondary-500;
+}
+
 .swiper-slide {
   width: auto !important;
 }

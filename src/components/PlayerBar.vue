@@ -167,7 +167,7 @@ watch(
   >
     <div class="flex grow items-center lg:w-3/12 lg:grow-0">
       <img
-        class="h-12 w-12 rounded-xl bg-primary-500 lg:h-16 lg:w-16"
+        class="h-12 w-12 rounded-xl lg:h-16 lg:w-16"
         :src="`/img/${playerStore.currnetSong.thumbnail}`"
         :alt="playerStore.currnetSong.title"
       />
