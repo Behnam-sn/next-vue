@@ -24,10 +24,13 @@ defineProps<{
           {{ album.title }}
         </div>
         <div
-          class="mt-1 flex font-Quicksand text-xs font-normal text-gray-400 lg:text-sm"
+          class="mt-1 flex font-Quicksand text-xs font-normal text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
         >
           <template v-for="(artist, index) in album.artists" :key="index">
-            <router-link :to="'/artist/' + artist.id">
+            <router-link
+              class="underline-offset-2 hover:underline"
+              :to="'/artist/' + artist.id"
+            >
               {{ artist.name }}
             </router-link>
             <span

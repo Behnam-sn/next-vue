@@ -179,13 +179,15 @@ watch(
         >
           {{ playerStore.currnetSong.title }}
         </router-link>
-        <div class="flex text-xs font-light text-neutral-300 lg:text-sm">
+        <div
+          class="flex text-xs font-light text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
+        >
           <template
             v-for="(artist, index) in playerStore.currnetSong.artists"
             :key="index"
           >
             <router-link
-              class="underline-offset-2 transition hover:underline"
+              class="underline-offset-2 hover:underline"
               :to="'/artist/' + artist.id"
             >
               {{ artist.name }}
