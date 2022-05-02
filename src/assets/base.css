@@ -30,7 +30,7 @@ body {
 }
 
 .navigation .router-link-active {
-  @apply bg-tertiary-800;
+  @apply bg-tertiary-700 hover:bg-tertiary-700;
 }
 
 .slide {
