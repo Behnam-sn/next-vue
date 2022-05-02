@@ -62,7 +62,7 @@ const userStore = useUserStore();
       <HistoryIcon class="h-6" />
     </SideMenuItem>
 
-    <SideMenuItem text="liked songs" address="/likedSongs">
+    <SideMenuItem text="likes" address="/likes">
       <HeartIcon class="h-6" />
     </SideMenuItem>
 

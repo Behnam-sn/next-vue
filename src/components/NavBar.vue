@@ -93,7 +93,7 @@ watch(
           <HistoryIcon class="h-5" />
         </NavBarItem>
 
-        <NavBarItem text="likes" address="/likedSongs">
+        <NavBarItem text="likes" address="/likes">
           <HeartIcon class="h-5" />
         </NavBarItem>
 

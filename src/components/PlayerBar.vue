@@ -58,7 +58,7 @@ const durationSeconds = computed(() => {
 });
 
 const isLiked = computed(() => {
-  return userStore.isInLikedSong(playerStore.currnetSong.id);
+  return userStore.isInLikes(playerStore.currnetSong.id);
 });
 
 function zeroPad(input: number) {
@@ -67,9 +67,9 @@ function zeroPad(input: number) {
 
 function likeSong() {
   if (isLiked.value) {
-    userStore.removeFromLikedSongs(playerStore.currnetSong);
+    userStore.removeFromLikes(playerStore.currnetSong.id);
   } else {
-    userStore.addToLikedSongs(playerStore.currnetSong);
+    userStore.addToLikes(playerStore.currnetSong);
   }
 }
 

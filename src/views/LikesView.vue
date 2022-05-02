@@ -8,13 +8,10 @@ const userStore = useUserStore();
 
 <template>
   <div>
-    <template v-if="userStore.likedSongs.length">
-      <TitleBar text="liked songs" />
+    <template v-if="userStore.likes.length">
+      <TitleBar text="likes" />
       <div class="flex flex-wrap justify-center">
-        <div
-          v-for="song in userStore.likedSongs.slice().reverse()"
-          :key="song.id"
-        >
+        <div v-for="song in userStore.likes.slice().reverse()" :key="song.id">
           <SongCard :song="song" />
         </div>
       </div>

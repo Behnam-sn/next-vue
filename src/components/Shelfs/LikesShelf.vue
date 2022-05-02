@@ -10,7 +10,7 @@ const userStore = useUserStore();
 <template>
   <swiper :slides-per-view="'auto'">
     <swiper-slide
-      v-for="song in userStore.likedSongs.slice().reverse()"
+      v-for="song in userStore.likes.slice().reverse()"
       :key="song.id"
     >
       <SongCard :song="song" />

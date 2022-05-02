@@ -54,9 +54,9 @@ const router = createRouter({
       redirect: "/",
     },
     {
-      path: "/likedSongs",
-      name: "likedSongs",
-      component: () => import("@/views/LikedSongsView.vue"),
+      path: "/likes",
+      name: "likes",
+      component: () => import("@/views/LikesView.vue"),
     },
     {
       path: "/album/:id",

@@ -6,7 +6,7 @@ import type { Song } from "@/models/song.model";
 
 interface State {
   theme: string;
-  likedSongs: Song[];
+  likes: Song[];
   recents: Song[];
 }
 
@@ -15,7 +15,7 @@ export const useUserStore = defineStore({
   state: () =>
     ({
       theme: "dark",
-      likedSongs: [],
+      likes: [],
       recents: [],
     } as State),
   getters: {},
@@ -48,17 +48,17 @@ export const useUserStore = defineStore({
     fetchUserData() {
       const songsStore = useSongsStore();
 
-      const localStorageLikedSongs = localStorage.getItem("likedSongs");
-      if (localStorageLikedSongs) {
-        const likedSongsId: string[] = JSON.parse(localStorageLikedSongs);
-        for (const id of likedSongsId) {
+      const localStorageLikes = localStorage.getItem("likes");
+      if (localStorageLikes) {
+        const likesId: string[] = JSON.parse(localStorageLikes);
+        for (const id of likesId) {
           const song = songsStore.getSongById(id);
           if (song) {
-            this.likedSongs.push(song);
+            this.likes.push(song);
           }
         }
       } else {
-        localStorage.setItem("likedSongs", "[]");
+        localStorage.setItem("likes", "[]");
       }
 
       const localStorageRecents = localStorage.getItem("recents");
@@ -74,33 +74,35 @@ export const useUserStore = defineStore({
         localStorage.setItem("recents", "[]");
       }
     },
-    addToLikedSongs(song: Song) {
-      this.likedSongs.push(song);
-      const localStorageLikedSongs = localStorage.getItem("likedSongs");
-      if (localStorageLikedSongs) {
-        const likedSongsId: string[] = JSON.parse(localStorageLikedSongs);
-        likedSongsId.push(song.id);
-        localStorage.setItem("likedSongs", JSON.stringify(likedSongsId));
+    addToLikes(song: Song) {
+      this.likes.push(song);
+      const localStorageLikes = localStorage.getItem("likes");
+      if (localStorageLikes) {
+        const likesIds: string[] = JSON.parse(localStorageLikes);
+        likesIds.push(song.id);
+        localStorage.setItem("likes", JSON.stringify(likesIds));
       }
     },
-    removeFromLikedSongs(song: Song) {
-      const index = this.likedSongs.indexOf(song);
-      if (index > -1) {
-        this.likedSongs.splice(index, 1);
+    removeFromLikes(songId: string) {
+      const index = this.likes.findIndex((object) => {
+        return object.id === songId;
+      });
+      if (index !== -1) {
+        this.likes.splice(index, 1);
       }
 
-      const localStorageLikedSongs = localStorage.getItem("likedSongs");
-      if (localStorageLikedSongs) {
-        const likedSongsId: string[] = JSON.parse(localStorageLikedSongs);
-        const index = likedSongsId.indexOf(song.id);
-        if (index > -1) {
-          likedSongsId.splice(index, 1);
+      const localStorageLikes = localStorage.getItem("likes");
+      if (localStorageLikes) {
+        const likesIds: string[] = JSON.parse(localStorageLikes);
+        const index = likesIds.indexOf(songId);
+        if (index !== -1) {
+          likesIds.splice(index, 1);
+          localStorage.setItem("likes", JSON.stringify(likesIds));
         }
-        localStorage.setItem("likedSongs", JSON.stringify(likedSongsId));
       }
     },
-    isInLikedSong(id: string): boolean {
-      const found = this.likedSongs.find((song) => song.id == id);
+    isInLikes(id: string) {
+      const found = this.likes.find((song) => song.id == id);
       if (found) {
         return true;
       }
