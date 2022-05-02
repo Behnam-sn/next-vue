@@ -5,6 +5,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
+          400: "#BFBFBF",
+          500: "#CCCCCC",
+          600: "#D9D9D9",
+          700: "#E6E6E6",
+          800: "#F2F2F2",
+          900: "#FFFFFF",
+        },
+        secondary: {
           300: "#565052",
           400: "#474143",
           500: "#433E40",
@@ -13,23 +21,14 @@ module.exports = {
           800: "#302C2E",
           900: "#282426",
         },
-        secondary: {
-          400: "#6C757D",
-          500: "#ADB5BD",
-          600: "#CED4DA",
-          700: "#DEE2E6",
-          800: "#E9ECEF",
-          900: "#F8F9FA",
-        },
         tertiary: {
-          400: "#b655f7",
-          500: "#ac3cf6",
-          600: "#a124f5",
-          700: "#970bf4",
-          800: "#880adb",
-          900: "#7209b7",
+          400: "#B655F7",
+          500: "#AC3CF6",
+          600: "#A124F5",
+          700: "#970BF4",
+          800: "#880ADB",
+          900: "#7209B7",
         },
-        // tertiary: "#ca3cff",
       },
       fontFamily: {
         Ubuntu: ["'Ubuntu'", "sans-serif"],
