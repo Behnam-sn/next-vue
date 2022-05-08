@@ -93,7 +93,7 @@ watch(searchText, (newSearchText) => {
     </template>
 
     <div
-      class="mx-5 mt-10 flex items-center justify-center rounded-lg bg-primary-800 py-32 transition-colors duration-300 dark:bg-secondary-800 lg:mx-48"
+      class="mx-5 mt-10 flex items-center justify-center rounded-lg bg-primary-800 py-20 transition-colors duration-300 dark:bg-secondary-800 lg:mx-48 lg:py-32"
       v-if="!searchText"
     >
       <SearchIcon
@@ -107,7 +107,7 @@ watch(searchText, (newSearchText) => {
     </div>
 
     <div
-      class="mx-5 mt-10 flex items-center justify-center rounded-lg bg-primary-800 py-32 transition-colors duration-300 dark:bg-secondary-800 lg:mx-48"
+      class="mx-5 mt-10 flex items-center justify-center rounded-lg bg-primary-800 py-20 transition-colors duration-300 dark:bg-secondary-800 lg:mx-48 lg:py-32"
       v-if="
         searchText &&
         !searchStore.songs.length &&
