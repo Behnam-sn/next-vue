@@ -125,7 +125,7 @@ function computeDuration(duration: number) {
 
     <div class="mx-4 hidden flex-row items-center lg:flex">
       <img
-        class="lazyload h-60 w-60 rounded-xl shadow-2xl"
+        class="lazyload h-60 w-60 rounded-xl shadow-xl"
         :data-src="`/img/${album?.thumbnail}`"
         :alt="album?.title"
       />

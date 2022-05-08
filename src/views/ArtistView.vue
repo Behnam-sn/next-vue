@@ -55,7 +55,7 @@ const popularSongs = computed(() => {
   <div>
     <div class="flex flex-col items-center lg:flex-row">
       <img
-        class="lazyload mx-auto h-52 w-52 rounded-full shadow-2xl lg:mx-0 lg:h-60 lg:w-60"
+        class="lazyload mx-auto h-52 w-52 rounded-full shadow-xl lg:mx-0 lg:h-60 lg:w-60"
         :data-src="`/img/${artist?.thumbnail}`"
         :alt="artist?.name"
       />
