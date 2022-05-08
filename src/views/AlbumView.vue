@@ -208,11 +208,13 @@ function computeDuration(duration: number) {
           >
             {{ song.title }}
           </div>
-          <div class="flex text-xs text-neutral-400 lg:text-sm">
+          <div
+            class="flex text-xs text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
+          >
             <template v-for="(artist, index) in song.artists" :key="index">
               <router-link
                 :to="'/artist/' + artist.id"
-                class="underline-offset-4 transition-all duration-300 hover:underline"
+                class="underline-offset-2 hover:underline"
               >
                 {{ artist.name }}
               </router-link>
