@@ -165,22 +165,22 @@ watch(
   <div
     class="fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl bg-secondary-900/20 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 transition-colors duration-300 dark:bg-primary-900/10 dark:text-primary-900 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
   >
-    <div class="flex grow items-center lg:w-3/12 lg:grow-0">
+    <div class="flex grow items-center overflow-hidden lg:w-3/12 lg:grow-0">
       <img
         class="h-12 w-12 rounded-xl lg:h-16 lg:w-16"
         :src="`/img/${playerStore.currnetSong.thumbnail}`"
         :alt="playerStore.currnetSong.title"
       />
 
-      <div class="ml-3 overflow-hidden text-ellipsis whitespace-nowrap lg:ml-6">
+      <div class="ml-3 overflow-hidden lg:ml-6">
         <router-link
-          class="font-medium lg:text-lg"
+          class="text-ellipsis whitespace-nowrap font-medium lg:text-lg"
           :to="'/album/' + playerStore.currnetSong.albumId"
         >
           {{ playerStore.currnetSong.title }}
         </router-link>
         <div
-          class="flex text-xs font-light text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
+          class="text-ellipsis whitespace-nowrap text-xs font-light text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
         >
           <template
             v-for="(artist, index) in playerStore.currnetSong.artists"
@@ -197,7 +197,6 @@ watch(
                 playerStore.currnetSong.artists.length !== 1 &&
                 index !== playerStore.currnetSong.artists.length - 1
               "
-              class="mx-1"
             >
               ,
             </span>

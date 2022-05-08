@@ -23,9 +23,7 @@ defineProps<{
         <div class="card-title">
           {{ song.title }}
         </div>
-        <div
-          class="mt-1 flex font-Quicksand text-xs font-normal text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
-        >
+        <div class="card-artists">
           <template v-for="(artist, index) in song.artists" :key="index">
             <router-link
               class="underline-offset-2 hover:underline"
@@ -37,7 +35,6 @@ defineProps<{
               v-if="
                 song.artists.length !== 1 && index !== song.artists.length - 1
               "
-              class="mr-1"
             >
               ,
             </span>

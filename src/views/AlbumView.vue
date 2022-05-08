@@ -58,7 +58,7 @@ function computeDuration(duration: number) {
 <template>
   <div class="font-Quicksand">
     <div class="mx-2 lg:hidden">
-      <div class="mb-5 flex items-center">
+      <div class="mb-4 flex items-center">
         <div class="group relative">
           <img
             class="lazyload h-36 w-36 max-w-fit rounded-xl shadow-lg"
@@ -73,7 +73,7 @@ function computeDuration(duration: number) {
 
         <div class="ml-5">
           <div
-            class="mb-4 text-3xl font-bold text-secondary-900 transition-colors duration-300 dark:text-primary-900"
+            class="mb-4 break-all text-3xl font-bold text-secondary-900 transition-colors duration-300 dark:text-primary-900"
           >
             {{ album?.title }}
           </div>
@@ -108,11 +108,11 @@ function computeDuration(duration: number) {
         </div>
       </div>
 
-      <div class="flex">
+      <div class="flex flex-wrap">
         <div v-for="(artist, index) in artists" :key="index">
           <router-link
             :to="'/artist/' + artist.id"
-            class="mr-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition-colors duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700"
+            class="mr-2 mt-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition-colors duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700"
           >
             <img
               class="lazyload w-9 rounded-full"
@@ -132,7 +132,7 @@ function computeDuration(duration: number) {
     <div class="mx-4 hidden flex-row items-center lg:flex">
       <div class="group relative">
         <img
-          class="lazyload h-60 w-60 rounded-xl shadow-xl"
+          class="lazyload h-60 w-60 max-w-fit rounded-xl shadow-xl"
           :data-src="`/img/${album?.thumbnail}`"
           :alt="album?.title"
         />
@@ -171,11 +171,11 @@ function computeDuration(duration: number) {
         </div>
 
         <div class="flex items-center justify-between">
-          <div class="flex">
+          <div class="flex flex-wrap">
             <div v-for="(artist, index) in artists" :key="index">
               <router-link
                 :to="'/artist/' + artist.id"
-                class="mr-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition-colors duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700"
+                class="mr-2 mt-2 flex items-center rounded-full bg-primary-800 py-2 px-4 transition-colors duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700"
               >
                 <img
                   class="lazyload w-11 rounded-full"
@@ -215,14 +215,14 @@ function computeDuration(duration: number) {
         >
           {{ song.number }}
         </div>
-        <div class="ml-4 grow lg:ml-8">
+        <div class="ml-4 overflow-hidden lg:ml-8">
           <div
             class="mb-1 text-sm font-medium text-secondary-900 transition-colors duration-300 dark:text-primary-900 lg:text-base"
           >
             {{ song.title }}
           </div>
           <div
-            class="flex text-xs text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
+            class="overflow-hidden text-ellipsis whitespace-nowrap text-xs text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm"
           >
             <template v-for="(artist, index) in song.artists" :key="index">
               <router-link
@@ -235,7 +235,6 @@ function computeDuration(duration: number) {
                 v-if="
                   song.artists.length !== 1 && index !== song.artists.length - 1
                 "
-                class="mx-1"
               >
                 ,
               </span>
@@ -243,7 +242,7 @@ function computeDuration(duration: number) {
           </div>
         </div>
         <div
-          class="text-sm font-medium text-secondary-900 transition-colors duration-300 dark:text-primary-900 lg:text-base"
+          class="ml-auto pl-2 text-sm font-medium text-secondary-900 transition-colors duration-300 dark:text-primary-900 lg:text-base"
         >
           {{ computeDuration(song.duration) }}
         </div>

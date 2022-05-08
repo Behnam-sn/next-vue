@@ -62,11 +62,15 @@ img {
 }
 
 .card {
-  @apply mr-3 mb-3 h-52 w-36 cursor-pointer select-none rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700  lg:mb-5 lg:mr-5 lg:h-72 lg:w-56;
+  @apply mr-3 mb-3 h-52 w-36 cursor-pointer select-none overflow-hidden rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700 lg:mb-5 lg:mr-5 lg:h-72 lg:w-56;
 }
 
 .card-title {
   @apply mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-sm font-medium text-secondary-900 transition duration-300 dark:text-primary-900 lg:text-base;
+}
+
+.card-artists {
+  @apply mt-1 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-xs font-normal text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm;
 }
 
 #nprogress {
