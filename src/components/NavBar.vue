@@ -49,12 +49,12 @@ watch(
 <template>
   <nav class="fixed top-0 z-20 w-full bg-tertiary-900 lg:hidden">
     <div class="flex flex-row items-center py-3 px-3">
-      <router-link to="/" class="grow">
+      <router-link to="/">
         <h1 class="font-Ubuntu text-3xl font-normal text-primary-900">Next</h1>
       </router-link>
 
       <button
-        class="mr-4 flex h-11 w-11 items-center justify-center rounded-md bg-secondary-900 fill-primary-900 transition-colors duration-300 dark:bg-primary-900 dark:fill-secondary-900"
+        class="mr-4 ml-auto flex h-11 w-11 items-center justify-center rounded-md bg-secondary-900 fill-primary-900 transition-colors duration-300 dark:bg-primary-900 dark:fill-secondary-900"
         @click="userStore.changeTheme"
       >
         <SunIcon class="h-7" v-if="userStore.theme === 'light'" />
