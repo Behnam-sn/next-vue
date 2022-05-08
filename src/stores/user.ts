@@ -14,7 +14,7 @@ export const useUserStore = defineStore({
   id: "user",
   state: () =>
     ({
-      theme: "dark",
+      theme: "light",
       likes: [],
       recents: [],
     } as State),
@@ -22,16 +22,11 @@ export const useUserStore = defineStore({
   actions: {
     fetchTheme() {
       const localStorageTheme = localStorage.getItem("theme");
-      if (localStorageTheme) {
-        if (localStorageTheme === "dark") {
-          this.theme = "dark";
-          document.documentElement.classList.add("dark");
-        } else {
-          this.theme = "light";
-        }
-      } else {
-        localStorage.setItem("theme", "dark");
+      if (localStorageTheme === "dark") {
+        this.theme = "dark";
         document.documentElement.classList.add("dark");
+      } else {
+        this.theme = "light";
       }
     },
     changeTheme() {
