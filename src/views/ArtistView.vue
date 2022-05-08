@@ -54,11 +54,17 @@ const popularSongs = computed(() => {
 <template>
   <div>
     <div class="flex flex-col items-center lg:flex-row">
-      <img
-        class="lazyload mx-auto h-52 w-52 rounded-full shadow-xl lg:mx-0 lg:h-60 lg:w-60"
-        :data-src="`/img/${artist?.thumbnail}`"
-        :alt="artist?.name"
-      />
+      <div class="group relative">
+        <img
+          class="lazyload mx-auto h-52 w-52 rounded-full shadow-xl lg:mx-0 lg:h-60 lg:w-60"
+          :data-src="`/img/${artist?.thumbnail}`"
+          :alt="artist?.name"
+        />
+        <PlayButton
+          class="bottom-3 right-3 group-hover:scale-125"
+          @click="playerStore.playArtist(artist?.id)"
+        />
+      </div>
       <div
         class="mt-4 flex flex-col items-center lg:mt-0 lg:items-start lg:pl-12"
       >
@@ -101,7 +107,7 @@ const popularSongs = computed(() => {
         </router-link>
 
         <PlayButton
-          class="left-2 lg:left-3"
+          class="left-2 group-hover:scale-100 lg:left-3"
           @click="playerStore.playSongs(popularSongs, index)"
         />
       </div>

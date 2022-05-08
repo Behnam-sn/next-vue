@@ -67,6 +67,11 @@ export const usePlayerStore = defineStore({
       this.queue = songsStore.getSongsByAlbum(albumId);
       this.currentIndex = 0;
     },
+    playArtist(artistId: string) {
+      const songsStore = useSongsStore();
+      this.queue = songsStore.getSongsByArtist(artistId);
+      this.currentIndex = 0;
+    },
     next() {
       if (this.currentIndex !== this.lastIndex) {
         this.currentIndex++;

@@ -58,14 +58,20 @@ function computeDuration(duration: number) {
 <template>
   <div class="font-Quicksand">
     <div class="mx-2 lg:hidden">
-      <div class="mb-5 flex">
-        <img
-          class="lazyload h-36 w-36 rounded-xl shadow-lg"
-          :data-src="`/img/${album?.thumbnail}`"
-          :alt="album?.title"
-        />
+      <div class="mb-5 flex items-center">
+        <div class="group relative">
+          <img
+            class="lazyload h-36 w-36 max-w-fit rounded-xl shadow-lg"
+            :data-src="`/img/${album?.thumbnail}`"
+            :alt="album?.title"
+          />
+          <PlayButton
+            class="bottom-2 right-2 group-hover:scale-100"
+            @click="playerStore.playAlbum(album?.id)"
+          />
+        </div>
 
-        <div class="ml-5 mt-5">
+        <div class="ml-5">
           <div
             class="mb-4 text-3xl font-bold text-secondary-900 transition-colors duration-300 dark:text-primary-900"
           >
@@ -124,11 +130,18 @@ function computeDuration(duration: number) {
     </div>
 
     <div class="mx-4 hidden flex-row items-center lg:flex">
-      <img
-        class="lazyload h-60 w-60 rounded-xl shadow-xl"
-        :data-src="`/img/${album?.thumbnail}`"
-        :alt="album?.title"
-      />
+      <div class="group relative">
+        <img
+          class="lazyload h-60 w-60 rounded-xl shadow-xl"
+          :data-src="`/img/${album?.thumbnail}`"
+          :alt="album?.title"
+        />
+        <PlayButton
+          class="bottom-4 right-4 group-hover:scale-125"
+          @click="playerStore.playAlbum(album?.id)"
+        />
+      </div>
+
       <div class="grow pl-8 pr-4">
         <div
           class="mb-8 flex flex-row items-center justify-between text-secondary-900 transition-colors duration-300 dark:text-primary-900"
@@ -235,7 +248,7 @@ function computeDuration(duration: number) {
           {{ computeDuration(song.duration) }}
         </div>
         <PlayButton
-          class="left-2 lg:left-4"
+          class="left-2 group-hover:scale-100 lg:left-4"
           @click="playerStore.playSongs(songs, index)"
         />
       </div>

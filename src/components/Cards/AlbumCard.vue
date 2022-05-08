@@ -46,7 +46,7 @@ defineProps<{
       </div>
     </router-link>
     <PlayButton
-      class="bottom-[5.5rem] right-6 lg:bottom-24 lg:right-8"
+      class="bottom-[5.5rem] right-6 group-hover:scale-100 lg:bottom-24 lg:right-8"
       @click="playerStore.playAlbum(album.id)"
     />
   </div>
