@@ -17,62 +17,6 @@
   @apply rounded-full bg-gray-400;
 }
 
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body {
-  @apply bg-primary-900 transition-colors duration-300 dark:bg-secondary-900;
-}
-
-img {
-  @apply bg-primary-500 transition-colors duration-300 dark:bg-secondary-500;
-}
-
-.swiper-slide {
-  width: auto !important;
-}
-
-.navigation .router-link-active {
-  @apply bg-tertiary-700 hover:bg-tertiary-700;
-}
-
-.slide {
-  @apply relative hidden items-center lg:flex;
-}
-
-.slide input {
-  @apply absolute z-30 w-full cursor-pointer appearance-none bg-transparent;
-}
-
-.slide input::-webkit-slider-thumb {
-  @apply h-4 w-4 appearance-none rounded-full border-none bg-secondary-900 outline-none transition-colors duration-300 dark:bg-primary-900;
-}
-
-.slide progress {
-  @apply absolute h-2 w-full appearance-none overflow-hidden rounded-full;
-}
-
-.slide progress::-webkit-progress-bar {
-  @apply bg-secondary-900/30 transition-colors duration-300 dark:bg-primary-900/30;
-}
-
-.slide progress::-webkit-progress-value {
-  @apply bg-secondary-900 transition-colors duration-300 dark:bg-primary-900;
-}
-
-.card {
-  @apply mr-3 mb-3 h-52 w-36 cursor-pointer select-none overflow-hidden rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700 lg:mb-5 lg:mr-5 lg:h-72 lg:w-56;
-}
-
-.card-title {
-  @apply mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-sm font-medium text-secondary-900 transition duration-300 dark:text-primary-900 lg:text-base;
-}
-
-.card-artists {
-  @apply mt-1 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-xs font-normal text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm;
-}
-
 #nprogress {
   pointer-events: none;
 }
@@ -102,4 +46,76 @@ img {
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  @apply bg-primary-900 transition-colors duration-300 dark:bg-secondary-900;
+}
+
+img {
+  @apply bg-primary-500 transition-colors duration-300 dark:bg-secondary-500;
+}
+
+.navigation .router-link-active {
+  @apply bg-tertiary-700 hover:bg-tertiary-700;
+}
+
+.player-bar {
+  @apply fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl px-3 py-3 font-Quicksand text-secondary-900 transition-colors duration-300 dark:text-primary-900 lg:right-4 lg:left-56 lg:justify-between lg:px-6;
+}
+
+@supports (backdrop-filter: none) {
+  .player-bar {
+    @apply bg-secondary-900/20 shadow-lg backdrop-blur-3xl backdrop-brightness-100 dark:bg-primary-900/10;
+  }
+}
+
+@supports not (backdrop-filter: none) {
+  .player-bar {
+    @apply bg-primary-500 dark:bg-secondary-500;
+  }
+}
+
+.slide {
+  @apply relative hidden items-center lg:flex;
+}
+
+.slide input {
+  @apply absolute z-30 w-full cursor-pointer appearance-none bg-transparent;
+}
+
+.slide input::-webkit-slider-thumb {
+  @apply h-4 w-4 appearance-none rounded-full border-none bg-secondary-900 outline-none transition-colors duration-300 dark:bg-primary-900;
+}
+
+.slide progress {
+  @apply absolute h-2 w-full appearance-none overflow-hidden rounded-full;
+}
+
+.slide progress::-webkit-progress-bar {
+  @apply bg-secondary-900/30 transition-colors duration-300 dark:bg-primary-900/30;
+}
+
+.slide progress::-webkit-progress-value {
+  @apply bg-secondary-900 transition-colors duration-300 dark:bg-primary-900;
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+.card {
+  @apply mr-3 mb-3 h-52 w-36 cursor-pointer select-none overflow-hidden rounded-xl bg-primary-800 transition duration-300 hover:bg-primary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700 lg:mb-5 lg:mr-5 lg:h-72 lg:w-56;
+}
+
+.card-title {
+  @apply mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-sm font-medium text-secondary-900 transition duration-300 dark:text-primary-900 lg:text-base;
+}
+
+.card-artists {
+  @apply mt-1 overflow-hidden text-ellipsis whitespace-nowrap font-Quicksand text-xs font-normal text-secondary-500 transition-colors duration-300 dark:text-primary-500 lg:text-sm;
 }

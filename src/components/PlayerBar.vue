@@ -162,9 +162,7 @@ watch(
 </script>
 
 <template>
-  <div
-    class="fixed left-2 right-2 bottom-4 z-20 flex items-center rounded-xl bg-secondary-900/20 px-3 py-3 font-Quicksand text-secondary-900 shadow-lg backdrop-blur-3xl backdrop-brightness-100 transition-colors duration-300 dark:bg-primary-900/10 dark:text-primary-900 lg:right-4 lg:left-56 lg:justify-between lg:px-6"
-  >
+  <div class="player-bar">
     <div class="flex grow items-center overflow-hidden lg:w-3/12 lg:grow-0">
       <img
         class="h-12 w-12 rounded-xl lg:h-16 lg:w-16"
