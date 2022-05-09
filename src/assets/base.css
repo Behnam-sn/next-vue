@@ -74,9 +74,14 @@ img {
   }
 }
 
+/* for firefox! */
 @supports not (backdrop-filter: none) {
   .player-bar {
     @apply bg-primary-500 dark:bg-secondary-500;
+  }
+
+  .slide progress {
+    @apply border-none bg-secondary-900/30 transition-colors duration-300 dark:bg-primary-900/30;
   }
 }
 
@@ -92,12 +97,21 @@ img {
   @apply h-4 w-4 appearance-none rounded-full border-none bg-secondary-900 outline-none transition-colors duration-300 dark:bg-primary-900;
 }
 
+.slide input::-moz-range-thumb {
+  @apply h-4 w-4 appearance-none rounded-full border-none bg-secondary-900 outline-none transition-colors duration-300 dark:bg-primary-900;
+}
+
 .slide progress {
   @apply absolute h-2 w-full appearance-none overflow-hidden rounded-full;
 }
 
 .slide progress::-webkit-progress-bar {
   @apply bg-secondary-900/30 transition-colors duration-300 dark:bg-primary-900/30;
+}
+
+/* firefox -vlaue is -bar */
+.slide progress::-moz-progress-bar {
+  @apply bg-secondary-900 transition-colors duration-300 dark:bg-primary-900;
 }
 
 .slide progress::-webkit-progress-value {
