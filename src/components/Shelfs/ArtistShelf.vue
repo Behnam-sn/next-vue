@@ -8,7 +8,7 @@ const artistsStore = useArtistsStore();
 </script>
 
 <template>
-  <swiper :slides-per-view="'auto'">
+  <swiper slides-per-view="auto">
     <swiper-slide v-for="artist in artistsStore.artists" :key="artist.id">
       <ArtistCard :artist="artist" />
     </swiper-slide>

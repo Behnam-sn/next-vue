@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 
 import NavBarItem from "@/components/NavBar/NavBarItem.vue";
 
@@ -15,7 +16,6 @@ import ListIcon from "@/assets/icons/ListIcon.vue";
 import SunIcon from "@/assets/icons/SunIcon.vue";
 import MoonIcon from "@/assets/icons/MoonIcon.vue";
 
-import { useRoute } from "vue-router";
 import { useUserStore } from "@/stores/user";
 const userStore = useUserStore();
 
@@ -55,7 +55,7 @@ watch(
 
       <button
         class="mr-4 ml-auto flex h-11 w-11 items-center justify-center rounded-md bg-secondary-900 fill-primary-900 transition-colors duration-300 dark:bg-primary-900 dark:fill-secondary-900"
-        @click="userStore.changeTheme"
+        @click="userStore.changeTheme()"
       >
         <SunIcon class="h-7" v-if="userStore.theme === 'light'" />
         <MoonIcon class="h-7" v-else />

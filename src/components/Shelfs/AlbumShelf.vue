@@ -8,7 +8,7 @@ const albumsStore = useAlbumsStore();
 </script>
 
 <template>
-  <swiper :slides-per-view="'auto'">
+  <swiper slides-per-view="auto">
     <swiper-slide v-for="album in albumsStore.albums" :key="album.id">
       <AlbumCard :album="album" />
     </swiper-slide>

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <router-link :to="'/artist/' + artist.id">
+  <router-link :to="`/artist/${artist.id}`">
     <div class="card p-4 lg:p-6">
       <img
         class="lazyload h-28 w-28 rounded-full lg:h-44 lg:w-44"

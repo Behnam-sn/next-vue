@@ -8,7 +8,7 @@ const songsStore = useSongsStore();
 </script>
 
 <template>
-  <swiper :slides-per-view="'auto'">
+  <swiper slides-per-view="auto">
     <swiper-slide v-for="song in songsStore.songs" :key="song.id">
       <SongCard :song="song" />
     </swiper-slide>

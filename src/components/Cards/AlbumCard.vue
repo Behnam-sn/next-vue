@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <div class="card group relative">
-    <router-link :to="'/album/' + album.id">
+    <router-link :to="`/album/${album.id}`">
       <div class="p-4 lg:p-6">
         <img
           class="lazyload h-28 w-28 rounded-xl lg:h-44 lg:w-44"
@@ -27,7 +27,7 @@ defineProps<{
           <template v-for="(artist, index) in album.artists" :key="index">
             <router-link
               class="underline-offset-2 hover:underline"
-              :to="'/artist/' + artist.id"
+              :to="`/artist/${artist.id}`"
             >
               {{ artist.name }}
             </router-link>

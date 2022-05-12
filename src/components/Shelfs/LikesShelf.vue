@@ -8,7 +8,7 @@ const userStore = useUserStore();
 </script>
 
 <template>
-  <swiper :slides-per-view="'auto'">
+  <swiper slides-per-view="auto">
     <swiper-slide
       v-for="song in userStore.likes.slice().reverse()"
       :key="song.id"

@@ -26,7 +26,7 @@ const userStore = useUserStore();
 
       <button
         class="mt-2 ml-auto flex h-10 w-10 items-center justify-center rounded-md bg-secondary-900 fill-primary-900 transition-colors duration-300 dark:bg-primary-900 dark:fill-secondary-900"
-        @click="userStore.changeTheme"
+        @click="userStore.changeTheme()"
       >
         <SunIcon class="h-6" v-if="userStore.theme === 'light'" />
         <MoonIcon class="h-6" v-else />
