@@ -5,7 +5,12 @@ import type { Song } from "@/models/song.model";
 interface State {
   queue: Song[];
   currentIndex: number;
-  isMute: boolean;
+  track: number;
+  isMouseDownOnTrack: boolean;
+  seekMinutes: string;
+  seekSeconds: string;
+  pause: boolean;
+  mute: boolean;
   loop: boolean;
   shuffle: boolean;
   volume: number;
@@ -33,7 +38,12 @@ export const usePlayerStore = defineStore({
         },
       ],
       currentIndex: 0,
-      isMute: false,
+      track: 0,
+      seekMinutes: "00",
+      seekSeconds: "00",
+      isMouseDownOnTrack: false,
+      pause: true,
+      mute: false,
       loop: false,
       shuffle: false,
       volume: 100,
