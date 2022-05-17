@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { zeroPad } from "@/composables/zeroPad";
 
 import PlayButton from "@/components/PlayButton.vue";
 
@@ -43,10 +44,6 @@ const artists = computed(() => {
 const songs = computed(() => {
   return songsStore.getSongsByAlbum(id.value);
 });
-
-function zeroPad(input: number) {
-  return ("0" + Math.floor(input)).slice(-2);
-}
 
 function computeDuration(duration: number) {
   let minutes = zeroPad(duration / 60);
