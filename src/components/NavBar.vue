@@ -61,7 +61,7 @@ watch(
         <MoonIcon class="h-7" v-else />
       </button>
 
-      <button @click="collapse">
+      <button @click="collapse()">
         <BarsIcon class="mr-1 h-8 fill-primary-900" />
       </button>
     </div>
