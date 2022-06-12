@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import TitleBar from "@/components/TitleBar.vue";
-// import BannerShelf from "@/components/BannerShelf.vue";
 import SongShelf from "@/components/Shelfs/SongShelf.vue";
 import ArtistShelf from "@/components/Shelfs/ArtistShelf.vue";
 import AlbumShelf from "@/components/Shelfs/AlbumShelf.vue";
@@ -13,7 +12,6 @@ const userStore = useUserStore();
 
 <template>
   <main>
-    <!-- <BannerShelf /> -->
     <TitleBar text="songs" />
     <SongShelf />
     <TitleBar text="artists" />
