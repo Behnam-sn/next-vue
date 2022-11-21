@@ -3,12 +3,12 @@ import "lazysizes";
 import "swiper/css";
 
 import NavBar from "@/components/NavBar.vue";
-import SideMenu from "@/components/SideMenu.vue";
 import PlayerBar from "@/components/PlayerBar.vue";
+import SideMenu from "@/components/SideMenu.vue";
 
-import { RouterView } from "vue-router";
-import { useUserStore } from "@/stores/user";
 import { usePlayerStore } from "@/stores/player";
+import { useUserStore } from "@/stores/user";
+import { RouterView } from "vue-router";
 
 const userStore = useUserStore();
 const playerStore = usePlayerStore();
